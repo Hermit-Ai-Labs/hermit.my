@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8455DA"/><stop offset=".55" stop-color="#5B27AE"/><stop offset="1" stop-color="#43168A"/></linearGradient>
+    <radialGradient id="gl" cx=".5" cy="-.15" r=".85"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".55" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="27" fill="url(#bg)"/>
+  <rect width="120" height="120" rx="27" fill="url(#gl)"/>
+  <rect x=".75" y=".75" width="118.5" height="118.5" rx="26.3" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
+  <g transform="translate(23.5 41.5) scale(.425)" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 5h161.8v100H5zM105 5v100M105 66.8h61.8M128.6 66.8V105M105 81.4h23.6M119.6 66.8v14.6M5 105A100 100 0 0 1 105 5a61.8 61.8 0 0 1 61.8 61.8 38.2 38.2 0 0 1-38.2 38.2 23.6 23.6 0 0 1-23.6-23.6 14.6 14.6 0 0 1 14.6-14.6"/>
+  </g>
+</svg>
