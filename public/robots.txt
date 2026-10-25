@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hermit.my/sitemap.xml

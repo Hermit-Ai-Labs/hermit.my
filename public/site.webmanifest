@@ -1,0 +1,1 @@
+{"name": "Hermit", "short_name": "Hermit", "description": "Private AI that lives on your iPhone.", "start_url": "/", "display": "standalone", "background_color": "#FFFFFF", "theme_color": "#4D1D95", "icons": [{"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}, {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}
