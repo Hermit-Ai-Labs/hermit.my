@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFB13B"/>
+      <stop offset="1" stop-color="#FF8A00"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="lift" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.6" stdDeviation="1.6" flood-color="#8A3D00" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="120" height="120" fill="url(#bg)"/>
+  <rect width="120" height="120" fill="url(#sheen)"/>
+  <!-- the iOS airplane glyph, nose to the right -->
+  <g transform="translate(60 60) rotate(90) translate(-50 -50) scale(1)" filter="url(#lift)">
+    <path fill="#fff" d="M50 12C53.4 12 55.2 16 55.2 21V40.5L86 57.6C87.3 58.4 88 59.6 88 61V63.4C88 64.6 87 65.3 85.9 64.9L55.2 56.4V72.8L63.9 79.4C64.6 79.9 65 80.6 65 81.4V83.9C65 84.9 64.1 85.5 63.2 85.2L50 81.2L36.8 85.2C35.9 85.5 35 84.9 35 83.9V81.4C35 80.6 35.4 79.9 36.1 79.4L44.8 72.8V56.4L14.1 64.9C13 65.3 12 64.6 12 63.4V61C12 59.6 12.7 58.4 14 57.6L44.8 40.5V21C44.8 16 46.6 12 50 12Z"/>
+  </g>
+</svg>
