@@ -48,7 +48,7 @@
   <svg class="shade" aria-hidden="true"><defs><filter id="nsh" x="-20%" y="-60%" width="140%" height="260%"><feGaussianBlur in="SourceAlpha" stdDeviation="10"/><feOffset dy="9" result="o"/><feFlood flood-color="#2a1660" flood-opacity=".26"/><feComposite in2="o" operator="in" result="s"/><feComposite in="s" in2="SourceAlpha" operator="out"/></filter></defs><path class="sh" filter="url(#nsh)"/><path class="hl"/></svg>
   <div class="wrap" data-lg="notch" data-band="20" data-bend="42" data-frost="6">
     <svg class="rim" aria-hidden="true"><path/></svg>
-    <a class="brand" href="#top"><img class="appi" src="/brand/app-icon.svg" alt="">Hermit</a>
+    <a class="brand" href="#top"><svg class="mark logo" aria-hidden="true"><use href="#m"/></svg>Hermit</a>
     <nav class="links"><a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="#faq">FAQ</a></nav>
     <div class="nav-r">
       <button class="theme-sw" data-theme-toggle aria-label="Switch light or dark theme"><svg viewBox="0 0 171.8 110"><path class="fill" d="M5 105A100 100 0 0 1 105 5V105Z"/><path class="frame" d="M5 5h161.8v100H5zM105 5v100M105 66.8h61.8M5 105A100 100 0 0 1 105 5"/></svg></button>
@@ -63,14 +63,14 @@
   <section class="hero">
     <div class="wrap">
       <h1>Ask <em class="s">anything.</em></h1>
-      <p class="for">Your own AI for
-        <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="/art/icons/pill.png" alt="">health</span>,</span>
-        <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="/art/icons/shushing_face.png" alt="">life secrets</span></span>
-        and <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="/art/icons/coin.png" alt="">crypto</span>.</span></p>
+      <p class="for"><span class="forlead">Your own AI for</span>
+        <span class="chips"><span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="art/icons/pill.png" alt="">health</span><span class="p">,</span></span>
+        <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="art/icons/shushing_face.png" alt="">life secrets</span></span>
+        <span class="p">and</span> <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="art/icons/coin.png" alt="">crypto</span><span class="p">.</span></span></span></p>
       <p class="strong">Uncensored. Private. Never leaves your phone.</p>
       <div class="ctas">
         <button class="btn wbtn" data-join><img src="/art/icons/testflight.png" alt="">Join the beta</button>
-        <button class="btn ghost lgx" data-lg data-band="14" data-bend="22" data-frost="6" data-join="code"><img class="ti" src="/art/icons/ticket.png" alt="">Got an invite code?</button>
+        <button class="btn ghost lgx" data-lg data-band="14" data-bend="22" data-frost="6" data-join="code"><img class="ti" src="/art/icons/ticket.png" alt=""><span class="dsk">Got an invite code?</span><span class="mob">Invite code</span></button>
       </div>
       <div class="plat">
         <span><img class="pi" src="/art/icons/app-store.png" alt="">App Store <em class="tag" style="font-style:normal">Coming soon</em></span>
@@ -93,7 +93,7 @@
         <button class="pause" id="pause"><svg viewBox="0 0 12 12"><rect x="2" y="1.5" width="2.6" height="9" rx="1"/><rect x="7.4" y="1.5" width="2.6" height="9" rx="1"/></svg><span>Pause</span></button>
       </div>
       <div class="canvas">
-        <img class="crab" src="/art/crab.svg" alt="">
+        <img class="masc" id="masc" src="/art/mascot/01-health.webp" alt="Hermit the crab, asking about health">
         <div class="phone" aria-label="Hermit answering in flight mode">
           <div class="screen">
             <div class="island"></div>
@@ -134,9 +134,9 @@
     <div class="wrap">
       <div class="center rv"><h2>Small enough <em class="s">to fit in a shell.</em></h2><p class="lead">The whole AI downloads once and lives on your iPhone.</p></div>
       <div class="crabs">
-        <div class="rv"><img src="/art/crab.svg" width="120" alt=""><div class="cn">Hermit Mini<em class="s">The quick one.</em></div><div class="big"><b>0.5</b><span>GB<br>download</span></div><div class="cs">For older iPhones. Answers fast.</div></div>
-        <div class="rv"><img src="/art/crab.svg" width="168" alt=""><div class="cn">Hermit<em class="s">The everyday one.</em></div><div class="big"><b>1.5</b><span>GB<br>download</span></div><div class="cs">Smarter, for newer iPhones.</div></div>
-        <div class="rv"><img src="/art/crab.svg" width="216" alt=""><div class="cn">Every model<em class="s">The quiet one.</em></div><div class="big"><b>0</b><span>bytes<br>sent anywhere</span></div><div class="cs">Not a single word leaves the phone.</div></div>
+        <div class="rv"><img src="/art/mascot/09-download-model.webp" alt="" loading="lazy"><div class="cn">Hermit Mini<em class="s">The quick one.</em></div><div class="big"><b>0.5</b><span>GB<br>download</span></div><div class="cs">For older iPhones. Answers fast.</div></div>
+        <div class="rv"><img src="/art/mascot/06-flight-mode.webp" alt="" loading="lazy"><div class="cn">Hermit<em class="s">The everyday one.</em></div><div class="big"><b>1.5</b><span>GB<br>download</span></div><div class="cs">Smarter, for newer iPhones.</div></div>
+        <div class="rv"><img src="/art/mascot/07-face-id-unlock.webp" alt="" loading="lazy"><div class="cn">Every model<em class="s">The quiet one.</em></div><div class="big"><b>0</b><span>bytes<br>sent anywhere</span></div><div class="cs">Not a single word leaves the phone.</div></div>
       </div>
       <p class="note">Built on open-weight models. Final sizes and supported iPhones are set at launch: [MIN IPHONE].</p>
     </div>
@@ -192,7 +192,7 @@
           <div><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Keys in your iPhone's Secure Enclave</div>
           <div><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Every token checked before you buy</div>
           <div><svg viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3"/></svg>Swaps that wait for your Face ID</div>
-          <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg>Agent payments with <img class="lg-x402" src="/art/logos/x402.svg" alt="x402"> and <span class="lg-stripe"><i aria-hidden="true"></i>Stripe</span></div>
+          <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg><span>Agent payments with <img class="lg-x402" src="/art/logos/x402.svg" alt="x402"> and <span class="lg-stripe"><i aria-hidden="true"></i>Stripe</span></span></div>
         </div>
         <a class="btn xbtn" href="https://x.com/hermitai_"><svg class="xl" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow the build on X</a>
       </div>
@@ -216,13 +216,13 @@
   <section class="cta">
     <div class="wrap">
       <div class="cta-card">
-        <img class="crab" src="/art/crab-sleep.svg" alt="">
+        <img class="crab" src="/art/mascot/08-no-cloud.webp" alt="" loading="lazy">
         <div class="cta-box rv">
           <div class="eyebrow">Some questions are just for you</div>
           <h2>Come out of your <em class="s">shell.</em></h2>
           <p>Your own AI. Uncensored, private, on your iPhone. Nobody else in the room.</p>
           <button class="btn" data-join>Join the beta <svg><use href="#arrow"/></svg></button>
-          <button class="btn ghost" data-join="code"><img class="ti" src="/art/icons/ticket.png" alt="">Got an invite code?</button>
+          <button class="btn ghost" data-join="code"><img class="ti" src="/art/icons/ticket.png" alt=""><span class="dsk">Got an invite code?</span><span class="mob">Invite code</span></button>
           <div class="plat"><span><img class="pi" src="/art/icons/app-store.png" alt="">App Store <em class="tag" style="font-style:normal">Coming soon</em></span><span><img class="pi" src="/art/icons/airplane-mode.svg" alt="">Flight mode</span></div>
         </div>
       </div>
@@ -240,7 +240,7 @@
 
 <div class="sheet-bg" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetT">
   <form class="sheet" novalidate>
-    <img class="peek" src="/art/crab.svg" alt="">
+    <img class="peek" id="sheetPeek" src="/art/mascot/09-download-model.webp" alt="">
     <button type="button" class="x" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
     <div class="sh-top"><img class="sh-ic" id="sheetIc" src="/art/icons/testflight.png" alt=""><div><h3 id="sheetT">Join the beta</h3><p id="sheetP">Your TestFlight invite lands when your wave opens.</p></div></div>
     <label class="field"><img id="sheetFi" src="/art/icons/envelope_with_arrow.png" alt=""><input id="sheetIn" type="email" placeholder="you@email.com" aria-label="Email" autocomplete="email" required></label>

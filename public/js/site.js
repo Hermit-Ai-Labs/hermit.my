@@ -41,6 +41,7 @@ document.querySelectorAll('[data-join]').forEach(b => b.addEventListener('click'
   $('sheetT').textContent = code ? 'Got an invite code?' : 'Join the beta';
   $('sheetP').textContent = code ? 'Enter it to skip the line.' : 'Your TestFlight invite lands when your wave opens.';
   $('sheetIc').src = code ? '/art/icons/ticket.png' : '/art/icons/testflight.png';
+  $('sheetPeek').src = code ? '/art/mascot/07-face-id-unlock.webp' : '/art/mascot/09-download-model.webp';
   $('sheetFi').src = code ? '/art/icons/key.png' : '/art/icons/envelope_with_arrow.png';
   $('sheetGo').textContent = code ? 'Unlock my invite' : 'Get my invite';
   sIn.type = code ? 'text' : 'email'; sIn.placeholder = code ? 'HERMIT-XXXX' : 'you@email.com'; sIn.value = '';
@@ -64,12 +65,16 @@ form.addEventListener('submit', e => {
 // product stage: tabs switch the conversation in the phone
 const M = '<div class="who"><svg class="mark"><use href="#m"/></svg>Hermit</div>';
 const chats = [
-  { q: "A mole on my back changed shape. Should I be worried?", a: ["Changing shape is the one sign doctors care most about. Check the rest: uneven halves, ragged edges, mixed colours, bigger than 6 mm.", "Most changes are harmless, but book a dermatologist this month. Want help describing it?"] },
-  { q: "I owe $14k on cards at 24%. Honest plan?", a: ["That's about $280 a month in interest alone. Pay every minimum, then throw everything extra at the highest-rate card.", "If your credit allows, a 0% balance-transfer card would stop most of that bleeding. Want me to map it out?"] },
-  { q: "How do I tell my partner I want an open relationship?", a: ["Pick a calm moment, not after a fight. Start with what you feel, not a proposal: \"I've been thinking about us and want to be honest.\"", "Expect hurt first, questions second. Want to rehearse it?"] },
-  { q: "Give it to me straight. Is 4 or 5 beers most nights a problem?", a: ["Straight answer: it's past the line. US guidelines call more than 14 drinks a week heavy drinking for men, 7 for women. You're at about 28 to 35.", "Not a verdict on you. Want the signs worth watching?"] },
-  { q: "Is this token safe to buy? 0x7a3f…c91e", warn: true, a: ["Checked on your phone: the contract blocks selling for everyone except the owner. It's a honeypot.", "Don't buy it. You'd be able to get in, but not out."] }
+  { topic: "health", q: "A mole on my back changed shape. Should I be worried?", a: ["Changing shape is the one sign doctors care most about. Check the rest: uneven halves, ragged edges, mixed colours, bigger than 6 mm.", "Most changes are harmless, but book a dermatologist this month. Want help describing it?"] },
+  { topic: "money", q: "I owe $14k on cards at 24%. Honest plan?", a: ["That's about $280 a month in interest alone. Pay every minimum, then throw everything extra at the highest-rate card.", "If your credit allows, a 0% balance-transfer card would stop most of that bleeding. Want me to map it out?"] },
+  { topic: "love", q: "How do I tell my partner I want an open relationship?", a: ["Pick a calm moment, not after a fight. Start with what you feel, not a proposal: \"I've been thinking about us and want to be honest.\"", "Expect hurt first, questions second. Want to rehearse it?"] },
+  { topic: "3am questions", q: "Give it to me straight. Is 4 or 5 beers most nights a problem?", a: ["Straight answer: it's past the line. US guidelines call more than 14 drinks a week heavy drinking for men, 7 for women. You're at about 28 to 35.", "Not a verdict on you. Want the signs worth watching?"] },
+  { topic: "crypto", q: "Is this token safe to buy? 0x7a3f…c91e", warn: true, a: ["Checked on your phone: the contract blocks selling for everyone except the owner. It's a honeypot.", "Don't buy it. You'd be able to get in, but not out."] }
 ];
+// one voxel crab per topic, preloaded so the swap never flashes empty
+const MASC = ['01-health', '02-money', '03-love', '04-3am-questions', '05-token-check'].map(n => '/art/mascot/' + n + '.webp');
+MASC.forEach(u => { new Image().src = u; });
+const masc = document.getElementById('masc'); masc.dataset.i = 0;
 const msgs = document.getElementById('msgs'), tabs = [...document.querySelectorAll('.tab')], stage = document.querySelector('.stage');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let cur = 0, timer, typer, paused = false;
@@ -79,6 +84,10 @@ function show(i, user) {
   tabs.forEach((t, k) => { t.classList.toggle('on', k === i); const b = t.querySelector('.bar i'); b.style.animation = 'none'; b.offsetWidth; b.style.animation = ''; });
   if (user && innerWidth <= 900) tabs[i].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
   const c = chats[i];
+  if (masc.dataset.i !== String(i)) {
+    masc.dataset.i = i; masc.classList.add('swap');
+    setTimeout(() => { masc.src = MASC[i]; masc.alt = 'Hermit the crab, asking about ' + c.topic; masc.classList.remove('swap'); }, reduce ? 0 : 280);
+  }
   msgs.innerHTML = '<div class="day">Today · on this iPhone</div><div class="b me"></div><div class="b ai">' + M + (c.warn ? '<span class="warn">⚠ Honeypot</span>' : '') + '<p></p><p></p></div>';
   msgs.querySelector('.me').textContent = c.q;
   msgs.classList.remove('swap'); msgs.offsetWidth; msgs.classList.add('swap');
