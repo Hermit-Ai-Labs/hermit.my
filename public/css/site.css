@@ -558,3 +558,49 @@ footer nav a:hover { color: var(--ink); }
   .hero .plat > a { font-size: 13px; color: var(--ink-3); text-decoration: none; }
   .hero .plat > a::after { content: " →"; }
 }
+
+/* hero word rotation: the things a cloud model will not touch */
+.hero h1 .rot { display: inline-grid; align-items: end; justify-items: center; vertical-align: bottom; white-space: nowrap; transition: width .6s cubic-bezier(.3, .8, .2, 1); }
+.hero h1 .rot > span { grid-area: 1 / 1; width: max-content; padding-right: .04em; }
+.hero h1 .rot .in { animation: rot-in .75s cubic-bezier(.2, .8, .2, 1) both; }
+.hero h1 .rot .out { animation: rot-out .45s cubic-bezier(.4, 0, .6, 1) both; }
+@keyframes rot-in { from { opacity: 0; transform: translateY(.32em); filter: blur(12px); } }
+@keyframes rot-out { to { opacity: 0; transform: translateY(-.28em); filter: blur(12px); } }
+@media (max-width: 900px) { .hero h1 .rot { display: grid; width: auto !important; } }
+/* buy/sell card inside Hermit's reply */
+.tx { margin-top: 4px; border-radius: 20px; padding: 12px; background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--line); display: grid; gap: 6px; font-size: 14px; line-height: 1.3; }
+.tx-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 2px 2px 6px; }
+.seal { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--ok); }
+.seal svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.seg { display: inline-flex; padding: 3px; border-radius: 99px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.seg b { font-weight: 600; font-size: 12.5px; padding: 4px 12px; border-radius: 99px; color: var(--ink-3); }
+.seg b.on { background: var(--ink); color: var(--bg); }
+.leg { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 12px 12px 14px; border-radius: 15px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.leg small { display: block; font-size: 12px; color: var(--ink-3); margin-bottom: 2px; }
+.leg strong { display: block; font-size: 25px; font-weight: 600; letter-spacing: -.035em; line-height: 1.15; }
+.tk { display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px 5px 5px; border-radius: 99px; background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--line); font-weight: 600; font-size: 14.5px; }
+.tk img { width: 26px; height: 26px; display: block; }
+.sw { justify-self: center; position: relative; z-index: 1; margin: -15px 0; width: 32px; height: 32px; border-radius: 11px; background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 0 0 4px var(--bg-2); display: grid; place-items: center; color: var(--ink-2); }
+.sw svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.rate { display: flex; justify-content: space-between; gap: 8px; padding: 4px 4px 2px; font: 400 11.5px/1.4 var(--mono); color: var(--ink-3); }
+.tx .go { height: 46px; margin-top: 2px; border-radius: 99px; background: var(--ink); color: var(--bg); display: flex; align-items: center; justify-content: center; gap: 9px; font-weight: 600; font-size: 15px; }
+.tx .go svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.sign .amt { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sign .amt img { width: 32px; height: 32px; }
+.sign .amt .to { color: var(--ink-3); font-weight: 400; margin: 0 2px; }
+/* closing card: both buttons on one row, sized to their labels */
+.cta-box .cta-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.cta-box .cta-row .btn { width: auto; flex: 0 0 auto; height: 50px; padding: 0 22px 0 16px; font-size: 15.5px; }
+.cta-box .cta-row .btn + .btn { margin-top: 0; }
+.cta-box .cta-row .dsk { display: none; }
+.cta-box .cta-row .mob { display: inline; }
+.cta-box .cta-row .btn img { width: 22px; height: 22px; }
+@media (max-width: 640px) {
+  .cta-box { padding-left: 16px; padding-right: 16px; }
+  .cta-box .cta-row { gap: 8px; flex-wrap: nowrap; }
+  .cta-box .cta-row .btn { height: 48px; padding: 0 14px 0 10px; font-size: 14.5px; gap: 6px; }
+  .crypto .sign .amt { font-size: 28px; gap: 6px; }
+  .crypto .sign .amt img { width: 26px; height: 26px; }
+  .cta-box .cta-row .btn img { width: 20px; height: 20px; }
+  .leg strong { font-size: 22px; }
+}

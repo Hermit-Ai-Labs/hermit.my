@@ -107,3 +107,33 @@ document.getElementById('pause').addEventListener('click', e => {
 });
 document.documentElement.style.setProperty('--dur', DUR / 1000 + 's');
 show(0);
+
+// hero: "Ask anything." cycles through what a cloud model refuses, each word sized so the line never reflows
+(() => {
+  const h1 = document.querySelector('.hero h1'), rot = h1.querySelector('.rot'), ask = h1.querySelector('.ask');
+  const words = ['anything.', 'dangerous.', 'sexual.', 'trading.', 'uncensored.'];
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let i = 0;
+  const fit = el => {
+    el.style.fontSize = '';
+    const inline = getComputedStyle(rot).display === 'inline-grid';
+    const box = h1.parentElement, bs = getComputedStyle(box), full = box.clientWidth - parseFloat(bs.paddingLeft) - parseFloat(bs.paddingRight) - 8;
+    const room = inline ? full - ask.offsetWidth - parseFloat(getComputedStyle(h1).fontSize) * .3 : full;
+    const w = el.getBoundingClientRect().width, k = Math.min(1, room / w);
+    if (k < 1) el.style.fontSize = k + 'em';
+    if (inline) rot.style.width = Math.ceil(w * k) + 'px';
+  };
+  const tick = () => {
+    i = (i + 1) % words.length;
+    const old = rot.querySelector('span:not(.out)'), next = document.createElement('span');
+    next.textContent = words[i]; next.className = 'in';
+    old.classList.remove('in'); old.classList.add('out');
+    rot.appendChild(next); fit(next);
+    setTimeout(() => old.remove(), 450);
+    setTimeout(tick, i === 0 ? 3400 : 2100);
+  };
+  // hold the headline's height so a narrower word never nudges the copy below it
+  const lock = () => { h1.style.height = ''; h1.style.height = h1.getBoundingClientRect().height + 'px'; };
+  document.fonts.ready.then(() => { fit(rot.firstElementChild); lock(); setTimeout(tick, 2600); });
+  addEventListener('resize', () => { fit(rot.querySelector('span:not(.out)')); lock(); });
+})();
