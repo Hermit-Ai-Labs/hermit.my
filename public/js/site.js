@@ -119,16 +119,28 @@ show(0);
   // "dangerous." gets typed out onto its label
   const danger = el => {
     const word = el.textContent;
-    el.classList.add('danger'); el.textContent = '';
+    el.classList.add('danger'); el.textContent = ''; label(el, word.slice(0, 1));
     const txt = document.createElement('i'), cur = document.createElement('u');
     txt.className = 'txt'; cur.className = 'cur';
     el.append(txt, cur);
     let n = 0;
     const type = () => {
-      txt.textContent = word.slice(0, ++n);
+      txt.textContent = word.slice(0, ++n); label(el, txt.textContent);
       if (n < word.length) setTimeout(type, 38 + Math.random() * 50); else setTimeout(() => cur.remove(), 500);
     };
     setTimeout(type, 220);
+  };
+  // the white label hugs the ink: measured from the glyph bounds, not the line box
+  const cv = document.createElement('canvas').getContext('2d');
+  const label = (el, text) => {
+    const cs = getComputedStyle(el), size = parseFloat(cs.fontSize);
+    cv.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + size + 'px ' + cs.fontFamily; cv.letterSpacing = cs.letterSpacing;
+    const m = cv.measureText(text || el.textContent), pad = size * .025;
+    const lh = parseFloat(cs.lineHeight) || size * 1.2, base = (lh - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent;
+    el.style.setProperty('--bl', (parseFloat(cs.paddingLeft) - m.actualBoundingBoxLeft - pad) + 'px');
+    el.style.setProperty('--bw', (m.actualBoundingBoxLeft + m.actualBoundingBoxRight + pad * 2) + 'px');
+    el.style.setProperty('--bt', (parseFloat(cs.paddingTop) + base - m.actualBoundingBoxAscent - pad) + 'px');
+    el.style.setProperty('--bh', (m.actualBoundingBoxAscent + m.actualBoundingBoxDescent + pad * 2) + 'px');
   };
   const fit = el => {
     el.style.fontSize = '';
@@ -138,6 +150,7 @@ show(0);
     const w = el.getBoundingClientRect().width, k = Math.min(1, room / w);
     if (k < 1) el.style.fontSize = k + 'em';
     if (inline) rot.style.width = Math.ceil(w * k) + 'px';
+    label(el);
   };
   const tick = () => {
     i = (i + 1) % words.length;

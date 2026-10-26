@@ -700,7 +700,8 @@ footer nav a:hover { color: var(--ink); }
 .compose .plus { width: 8cqw; height: 8cqw; border-radius: 50%; display: grid; place-items: center; font-weight: 400; font-size: 5.4cqw; line-height: 1; color: #6D6A78; background: rgba(120, 110, 140, .12); }
 .screen.app .compose i { background: linear-gradient(160deg, #7C4DDB, #4D1D95); box-shadow: 0 1cqw 2cqw -1cqw rgba(77, 29, 149, .8); }
 /* every rotating word sits on a solid white label; "dangerous." is typed onto it */
-.hero h1 .rot > span { background: #fff; color: #3B0F80; padding: .04em .14em .13em .1em; border-radius: .1em; box-shadow: 0 .06em .24em -.06em rgba(40, 10, 90, .3); }
+.hero h1 .rot > span { position: relative; isolation: isolate; color: #3B0F80; }
+.hero h1 .rot > span::before { content: ""; position: absolute; z-index: -1; left: var(--bl, 0); top: var(--bt, 0); width: var(--bw, 100%); height: var(--bh, 100%); background: #fff; border-radius: .05em; box-shadow: 0 .05em .2em -.05em rgba(40, 10, 90, .3); }
 .rot .danger .txt { font-style: italic; }
 .rot .danger .cur { display: inline-block; width: .055em; height: .72em; margin-left: .03em; background: #3B0F80; vertical-align: -.02em; text-decoration: none; animation: blink .7s steps(1) infinite; }
 /* phone hero, final pass: one quiet line per idea, chips on a single row, smaller calmer type around the headline */
