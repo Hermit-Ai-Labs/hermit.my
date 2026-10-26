@@ -237,7 +237,6 @@ h1 em.s { color: var(--purple-t); font-size: 1.08em; letter-spacing: -.035em; pa
 .canvas::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, rgba(255, 255, 255, .0) 55%, rgba(255, 255, 255, .12)); pointer-events: none; }
 :root[data-theme="dark"] .canvas::after { background: rgba(10, 8, 20, .28); }
 .canvas .crab { position: absolute; width: 150px; left: 50%; top: -56px; margin-left: 8px; z-index: 3; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .08)); }
-.credit { position: absolute; right: 16px; bottom: 12px; font: 400 11px/1 var(--mono); color: rgba(255, 255, 255, .85); letter-spacing: .02em; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); z-index: 2; }
 .canvas .phone { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; }
 
 /* phone */
