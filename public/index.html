@@ -64,9 +64,9 @@
     <div class="wrap">
       <h1 aria-label="Ask anything."><span class="ask">Ask</span> <em class="s rot" aria-hidden="true"><span>anything.</span></em></h1>
       <p class="for"><span class="forlead">Your own AI for</span>
-        <span class="chips"><span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="art/icons/pill.png" alt="">health</span><span class="p">,</span></span>
-        <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="art/icons/shushing_face.png" alt="">life secrets</span></span>
-        <span class="p">and</span> <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="art/icons/coin.png" alt="">crypto</span><span class="p">.</span></span></span></p>
+        <span class="chips"><span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="/art/icons/pill.png" alt="">health</span><span class="p">,</span></span>
+        <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="/art/icons/shushing_face.png" alt="">life secrets</span></span>
+        <span class="p">and</span> <span class="nw"><span class="chip lgx" data-lg data-band="11" data-bend="16" data-frost="5"><img src="/art/icons/coin.png" alt="">crypto</span><span class="p">.</span></span></span></p>
       <p class="strong">Uncensored. Private. Never leaves your phone.</p>
       <div class="ctas">
         <button class="btn wbtn" data-join><img src="/art/icons/testflight.png" alt="">Join the beta</button>
@@ -95,12 +95,13 @@
       <div class="canvas">
         <img class="masc" id="masc" src="/art/mascot/01-health.webp" alt="Hermit the crab, asking about health">
         <div class="phone" aria-label="Hermit answering in flight mode">
-          <div class="screen">
+          <div class="screen app">
             <div class="island"></div>
             <div class="sbar"><span>9:41</span><span class="ic"><svg><use href="#plane"/></svg><span class="batt"><i></i></span></span></div>
-            <div class="ahead"><b>Hermit</b><small><svg><use href="#plane"/></svg>Offline · flight mode on</small></div>
+            <div class="ahead"><span class="av lg"><svg class="mark"><use href="#m"/></svg></span><div><b>Hermit</b><small><svg><use href="#plane"/></svg>Offline · flight mode on</small></div></div>
             <div class="msgs" id="msgs"></div>
-            <div class="compose"><span>Ask anything</span><i><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></i></div>
+            <div class="qchips"><span><img src="/art/icons/pill.png" alt="">Health</span><span><img src="/art/icons/shushing_face.png" alt="">Secrets</span><span><img src="/art/icons/coin.png" alt="">Crypto</span></div>
+            <div class="compose"><b class="plus">+</b><span>Ask anything</span><i><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></i></div>
             <div class="homebar"><i></i></div>
           </div>
         </div>
@@ -112,29 +113,58 @@
     <div class="wrap">
       <div class="center rv"><h2>No filters. <em class="s">No lectures.</em></h2><p class="lead">Things you would never paste into a cloud chat. Same request, two assistants.</p></div>
       <div class="vs rv">
-        <div class="win cloud">
-          <div class="bar"><i></i><i></i><i></i><span>A cloud assistant · online</span></div>
-          <div class="body">
-            <div class="q">Here's my private key: <span class="key">0x4c0f&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;9b2e</span>. Buy $500 of ETH for me.</div>
-            <div class="a">I can't help with that. Never share your private key with anyone, including an AI assistant. I'm also unable to make trades on your behalf.</div>
+        <figure class="vsp">
+          <div class="phone" aria-label="A cloud assistant refusing the request">
+            <div class="screen">
+              <div class="island"></div>
+              <div class="sbar"><span>9:41</span><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 18.5a1.6 1.6 0 1 0 0 .01zM7.8 15.2a6 6 0 0 1 8.4 0l1.4-1.5a8 8 0 0 0-11.2 0zM4.6 12a10.5 10.5 0 0 1 14.8 0l1.4-1.4a12.5 12.5 0 0 0-17.6 0z"/></svg><span class="batt"><i></i></span></span></div>
+              <div class="ahead"><b>Cloud AI</b><small class="on"><i class="dot"></i>Online · runs on their servers</small></div>
+              <div class="msgs">
+                <div class="b me grey">Here's my private key: <span class="key">0x4206e398fa3188ecea3da6230f251cc0727d01cb2b29d22a45e15bab77acb46c</span>Buy $500 of ETH for me.</div>
+                <div class="b ai cloud"><div class="who"><svg viewBox="0 0 24 24" class="cl"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.1 9.6 4.2 4.2 0 0 0 7 18z"/></svg>Cloud AI</div><p>I can't help with that. Never share your private key with anyone, including an AI assistant. I'm also unable to make trades on your behalf.</p></div>
+              </div>
+              <div class="compose"><span>Message</span><i class="g"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></i></div>
+              <div class="homebar"><i></i></div>
+            </div>
           </div>
-        </div>
-        <div class="win hermit">
-          <div class="bar"><i></i><i></i><i></i><span>Hermit · offline</span></div>
-          <div class="body">
-            <div class="q">Here's my private key: <span class="key">0x4c0f&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;9b2e</span>. Buy $500 of ETH for me.</div>
-            <div class="a"><div class="who"><svg class="mark"><use href="#m"/></svg>Hermit</div>
-              <div class="tx" aria-label="Buy 500 USDC of ETH, waiting for Face ID">
+          <figcaption>A cloud assistant <span>Online · refuses</span></figcaption>
+        </figure>
+        <figure class="vsp hermit">
+          <div class="phone" aria-label="Hermit taking the trade, offline">
+            <div class="screen app">
+              <div class="island"></div>
+              <div class="sbar"><span>9:41</span><span class="ic"><svg><use href="#plane"/></svg><span class="batt"><i></i></span></span></div>
+              <div class="ahead"><span class="av lg"><svg class="mark"><use href="#m"/></svg></span><div><b>Hermit</b><small><svg><use href="#plane"/></svg>Offline · flight mode on</small></div></div>
+              <div class="msgs">
+                <div class="b me">Here's my private key: <span class="key">0x4206e398fa3188ecea3da6230f251cc0727d01cb2b29d22a45e15bab77acb46c</span>Buy $500 of ETH for me.</div>
+                <div class="b ai bare"><div class="who"><span class="av"><svg class="mark"><use href="#m"/></svg></span>Hermit</div>
+              <div class="trade" aria-label="Buy 500 USDC of ETH, waiting for Face ID">
                 <div class="tx-top"><span class="seal"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Key sealed on this iPhone</span><span class="seg"><b class="on">Buy</b><b>Sell</b></span></div>
                 <div class="leg"><div><small>You pay</small><strong>500.00</strong></div><span class="tk"><img src="/art/logos/usdc.svg" alt="">USDC</span></div>
                 <div class="sw" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg></div>
                 <div class="leg"><div><small>You get</small><strong>0.1351</strong></div><span class="tk"><img src="/art/logos/eth.svg" alt="">ETH</span></div>
                 <div class="rate"><span>1 ETH ≈ 3,701 USDC</span><span>Fee ≈ $0.38</span></div>
-                <div class="go"><svg viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3M9 9v1.5M15 9v1.5M12 9v4h-1M9 16a4.5 4.5 0 0 0 6 0"/></svg>Confirm with Face ID</div>
+                <button class="go" type="button"><span class="go-t"><svg viewBox="0 0 24 24"><path d="M3 8V5a2 2 0 0 1 2-2h3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3M9 9v1.5M15 9v1.5M12 9v4h-1M9 16a4.5 4.5 0 0 0 6 0"/></svg>Confirm with Face ID</span><span class="go-b"><i class="spin"></i>Swapping on-chain…</span><i class="go-p"></i></button>
+                <div class="fid-hud" aria-hidden="true">
+                  <svg viewBox="0 0 64 64"><g class="fc"><path d="M6 20V12a6 6 0 0 1 6-6h8M44 6h8a6 6 0 0 1 6 6v8M58 44v8a6 6 0 0 1-6 6h-8M20 58h-8a6 6 0 0 1-6-6v-8"/></g><g class="ff"><path d="M23 24v5M41 24v5M32 24v12h-3M24 43a11 11 0 0 0 16 0"/></g><circle class="fr" cx="32" cy="32" r="26"/><path class="fk" d="M21 33l7.5 7.5L44 25"/></svg>
+                  <span>Face ID</span>
+                </div>
+                <div class="tx-done" aria-live="polite">
+                  <div class="tick"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="23"/><path d="M15 27l7.5 7.5L37.5 19"/></svg></div>
+                  <b>Bought 0.1351 ETH</b>
+                  <span class="for"><img src="/art/logos/usdc.svg" alt="">500.00 USDC <em>→</em> <img src="/art/logos/eth.svg" alt="">0.1351 ETH</span>
+                  <span class="hash">0x9c1e7a…41ab · confirmed · fee $0.38</span>
+                  <button class="again" type="button">Done</button>
+                </div>
               </div>
+                </div>
+              </div>
+              <div class="compose"><b class="plus">+</b><span>Ask anything</span><i><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></i></div>
+              <div class="homebar"><i></i></div>
             </div>
           </div>
-        </div>
+          <figcaption>Hermit <span>Offline · does it</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -253,6 +283,7 @@
     <button type="button" class="x" aria-label="Close"><svg viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
     <div class="sh-top"><img class="sh-ic" id="sheetIc" src="/art/icons/testflight.png" alt=""><div><h3 id="sheetT">Join the beta</h3><p id="sheetP">Your TestFlight invite lands when your wave opens.</p></div></div>
     <label class="field"><img id="sheetFi" src="/art/icons/envelope_with_arrow.png" alt=""><input id="sheetIn" type="email" placeholder="you@email.com" aria-label="Email" autocomplete="email" required></label>
+    <p class="sh-err" id="sheetErr" role="alert"></p>
     <button class="go" type="submit"><span id="sheetGo">Get my invite</span><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
     <div class="sh-foot"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="6.5" rx="1.6"/><path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7"/></svg>One email when it's ready. No newsletter, ever.</div>
     <div class="sh-done" aria-live="polite"><div class="ring"><svg viewBox="0 0 48 48"><path d="M14 25l7 7 14-15"/></svg></div><h3 id="doneT">You're on the list</h3><p id="doneP">Watch your inbox for a TestFlight invite.</p></div>

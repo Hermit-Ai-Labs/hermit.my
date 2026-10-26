@@ -1,6 +1,7 @@
 // Hermit · hermit.my
 // Page behaviour: the notch navbar, scroll reveals, the join sheet and the product stage.
 'use strict';
+// phone menu
 
 // notch shape: a tab hanging from the top edge, concave shoulders r, rounded bottom corners R
 (function () {
@@ -18,11 +19,8 @@
   shape(); new ResizeObserver(shape).observe(el); document.fonts && document.fonts.ready.then(shape);
 })();
 
-// a deeper shadow once the page moves under the navbar
 const navEl = document.querySelector('.nav');
 addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrollY > 10), { passive: true });
-
-// phone menu
 const mm = document.getElementById('mmenu');
 document.getElementById('menuBtn').onclick = () => mm.classList.toggle('open');
 mm.onclick = () => mm.classList.remove('open');
@@ -31,8 +29,7 @@ mm.onclick = () => mm.classList.remove('open');
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-// join sheet: waitlist email or invite code.
-// Nothing is sent yet: the waitlist endpoint lands with the beta. Until then it shows the success state and a toast.
+// join sheet: the waitlist is closed for now, and no invite codes are live yet
 const sheet = document.getElementById('sheet'), form = sheet.querySelector('form'), sIn = document.getElementById('sheetIn'), field = sIn.closest('.field');
 const $ = id => document.getElementById(id);
 document.querySelectorAll('[data-join]').forEach(b => b.addEventListener('click', e => {
@@ -46,24 +43,29 @@ document.querySelectorAll('[data-join]').forEach(b => b.addEventListener('click'
   $('sheetGo').textContent = code ? 'Unlock my invite' : 'Get my invite';
   sIn.type = code ? 'text' : 'email'; sIn.placeholder = code ? 'HERMIT-XXXX' : 'you@email.com'; sIn.value = '';
   sIn.autocomplete = code ? 'off' : 'email'; sIn.style.textTransform = code ? 'uppercase' : '';
-  sheet.classList.add('open'); setTimeout(() => sIn.focus(), 60);
+  // the waitlist is not open yet: the email field stays closed
+  sIn.disabled = !code; field.classList.toggle('locked', !code); form.querySelector('.go').disabled = !code;
+  if (!code) { sIn.placeholder = 'The waitlist opens soon'; $('sheetGo').textContent = 'Opening soon'; }
+  $('sheetErr').classList.remove('on');
+  sheet.classList.add('open'); if (code) setTimeout(() => sIn.focus(), 60);
 }));
 const close = () => sheet.classList.remove('open');
 sheet.addEventListener('click', e => { if (e.target === sheet || e.target.closest('.x')) close(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-sIn.addEventListener('input', () => field.classList.remove('bad'));
+sIn.addEventListener('input', () => { field.classList.remove('bad'); $('sheetErr').classList.remove('on'); });
 form.addEventListener('submit', e => {
-  e.preventDefault(); const code = form.dataset.mode === 'code', v = sIn.value.trim();
-  const ok = code ? /^[A-Za-z0-9-]{4,}$/.test(v) : /^\S+@\S+\.\S+$/.test(v);
-  if (!ok) { field.classList.remove('bad'); void field.offsetWidth; field.classList.add('bad'); sIn.focus(); return; }
-  $('doneT').textContent = code ? 'Code received' : "You're on the list";
-  $('doneP').textContent = code ? "We'll check it and email your invite." : 'Watch your inbox for a TestFlight invite.';
-  form.classList.add('done');
-  setTimeout(() => { close(); hermitToast(code ? 'Invite code sent' : "You're on the list", code ? v.toUpperCase() : v, code ? '/art/icons/ticket.png' : '/art/icons/testflight.png'); }, 1800);
+  e.preventDefault();
+  if (form.dataset.mode !== 'code') return;
+  // no codes are live yet, so every attempt is refused the way iOS refuses a passcode
+  field.classList.remove('bad'); void field.offsetWidth; field.classList.add('bad');
+  $('sheetErr').textContent = sIn.value.trim() ? 'Wrong access code' : 'Enter your access code';
+  $('sheetErr').classList.add('on');
+  if (navigator.vibrate) navigator.vibrate([40, 60, 40]);
+  sIn.select();
 });
 
 // product stage: tabs switch the conversation in the phone
-const M = '<div class="who"><svg class="mark"><use href="#m"/></svg>Hermit</div>';
+const M = '<div class="who"><span class="av"><svg class="mark"><use href="#m"/></svg></span>Hermit</div>';
 const chats = [
   { topic: "health", q: "A mole on my back changed shape. Should I be worried?", a: ["Changing shape is the one sign doctors care most about. Check the rest: uneven halves, ragged edges, mixed colours, bigger than 6 mm.", "Most changes are harmless, but book a dermatologist this month. Want help describing it?"] },
   { topic: "money", q: "I owe $14k on cards at 24%. Honest plan?", a: ["That's about $280 a month in interest alone. Pay every minimum, then throw everything extra at the highest-rate card.", "If your credit allows, a 0% balance-transfer card would stop most of that bleeding. Want me to map it out?"] },
@@ -114,6 +116,20 @@ show(0);
   const words = ['anything.', 'dangerous.', 'sexual.', 'trading.', 'uncensored.'];
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   let i = 0;
+  // "dangerous." gets typed out over a slanted ink stroke, with a little signal glitch
+  const danger = el => {
+    const word = el.textContent;
+    el.classList.add('danger'); el.textContent = '';
+    const ink = document.createElement('b'), txt = document.createElement('i'), cur = document.createElement('u');
+    ink.className = 'ink'; txt.className = 'txt'; cur.className = 'cur';
+    el.append(ink, txt, cur);
+    let n = 0;
+    const type = () => {
+      txt.textContent = word.slice(0, ++n); txt.dataset.text = txt.textContent;
+      if (n < word.length) setTimeout(type, 38 + Math.random() * 50); else setTimeout(() => cur.remove(), 500);
+    };
+    setTimeout(type, 220);
+  };
   const fit = el => {
     el.style.fontSize = '';
     const inline = getComputedStyle(rot).display === 'inline-grid';
@@ -129,6 +145,7 @@ show(0);
     next.textContent = words[i]; next.className = 'in';
     old.classList.remove('in'); old.classList.add('out');
     rot.appendChild(next); fit(next);
+    if (words[i] === 'dangerous.') danger(next);
     setTimeout(() => old.remove(), 450);
     setTimeout(tick, i === 0 ? 3400 : 2100);
   };
@@ -136,4 +153,19 @@ show(0);
   const lock = () => { h1.style.height = ''; h1.style.height = h1.getBoundingClientRect().height + 'px'; };
   document.fonts.ready.then(() => { fit(rot.firstElementChild); lock(); setTimeout(tick, 2600); });
   addEventListener('resize', () => { fit(rot.querySelector('span:not(.out)')); lock(); });
+})();
+
+// comparison card: Face ID, then the swap, then the receipt
+(() => {
+  const tx = document.querySelector('.vs .trade'); if (!tx) return;
+  const go = tx.querySelector('.go'), again = tx.querySelector('.again');
+  let busy = false;
+  go.addEventListener('click', () => {
+    if (busy) return; busy = true;
+    tx.classList.add('is-scan');
+    setTimeout(() => tx.classList.add('is-ok'), 1150);
+    setTimeout(() => { tx.classList.remove('is-scan', 'is-ok'); tx.classList.add('is-send'); }, 2050);
+    setTimeout(() => { tx.classList.add('is-done'); tx.classList.remove('is-send'); again.focus({ preventScroll: true }); }, 3750);
+  });
+  again.addEventListener('click', () => { tx.classList.remove('is-done'); busy = false; go.focus({ preventScroll: true }); });
 })();
