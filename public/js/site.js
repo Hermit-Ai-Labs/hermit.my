@@ -116,7 +116,7 @@ show(0);
   const words = ['anything.', 'dangerous.', 'sexual.', 'trading.', 'uncensored.'];
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   let i = 0;
-  // "dangerous." gets typed out over a slanted ink stroke, with a little signal glitch
+  // "dangerous." gets typed out over a white brush stroke
   const danger = el => {
     const word = el.textContent;
     el.classList.add('danger'); el.textContent = '';
@@ -125,7 +125,7 @@ show(0);
     el.append(ink, txt, cur);
     let n = 0;
     const type = () => {
-      txt.textContent = word.slice(0, ++n); txt.dataset.text = txt.textContent;
+      txt.textContent = word.slice(0, ++n);
       if (n < word.length) setTimeout(type, 38 + Math.random() * 50); else setTimeout(() => cur.remove(), 500);
     };
     setTimeout(type, 220);
