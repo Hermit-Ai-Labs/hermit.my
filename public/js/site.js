@@ -110,62 +110,56 @@ document.getElementById('pause').addEventListener('click', e => {
 document.documentElement.style.setProperty('--dur', DUR / 1000 + 's');
 show(0);
 
-// hero: "Ask anything." cycles through what a cloud model refuses, each word sized so the line never reflows
+// hero: "Ask anything." types through what a cloud model refuses, typewriter style. The white label hugs
+// the text typed so far (cap height to baseline, a little air at the sides), so descenders hang below it.
 (() => {
-  const h1 = document.querySelector('.hero h1'), rot = h1.querySelector('.rot'), ask = h1.querySelector('.ask');
+  const h1 = document.querySelector('.hero h1'), rot = h1.querySelector('.rot'), ask = h1.querySelector('.ask'), el = rot.firstElementChild;
   const words = ['anything.', 'dangerous.', 'sexual.', 'trading.', 'uncensored.'];
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let i = 0;
-  // "dangerous." gets typed out onto its label
-  const danger = el => {
-    const word = el.textContent;
-    el.classList.add('danger'); el.textContent = ''; label(el, word.slice(0, 1));
-    const txt = document.createElement('i'), cur = document.createElement('u');
-    txt.className = 'txt'; cur.className = 'cur';
-    el.append(txt, cur);
-    let n = 0;
-    const type = () => {
-      txt.textContent = word.slice(0, ++n); label(el, txt.textContent);
-      if (n < word.length) setTimeout(type, 38 + Math.random() * 50); else setTimeout(() => cur.remove(), 500);
-    };
-    setTimeout(type, 220);
-  };
-  // the white label hugs the ink: measured from the glyph bounds, not the line box
+  const txt = document.createElement('i'), cur = document.createElement('u');
+  txt.className = 'txt'; cur.className = 'cur'; txt.textContent = el.textContent; el.textContent = ''; el.append(txt, cur);
   const cv = document.createElement('canvas').getContext('2d');
-  const label = (el, text) => {
+  const label = () => {
     const cs = getComputedStyle(el), size = parseFloat(cs.fontSize);
     cv.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + size + 'px ' + cs.fontFamily; cv.letterSpacing = cs.letterSpacing;
-    const m = cv.measureText(text || el.textContent), pad = size * .025;
+    const m = cv.measureText(txt.textContent || ' '), cap = cv.measureText('H').actualBoundingBoxAscent, padX = size * .07;
     const lh = parseFloat(cs.lineHeight) || size * 1.2, base = (lh - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent;
-    el.style.setProperty('--bl', (parseFloat(cs.paddingLeft) - m.actualBoundingBoxLeft - pad) + 'px');
-    el.style.setProperty('--bw', (m.actualBoundingBoxLeft + m.actualBoundingBoxRight + pad * 2) + 'px');
-    el.style.setProperty('--bt', (parseFloat(cs.paddingTop) + base - m.actualBoundingBoxAscent - pad) + 'px');
-    el.style.setProperty('--bh', (m.actualBoundingBoxAscent + m.actualBoundingBoxDescent + pad * 2) + 'px');
+    const left = txt.textContent ? m.actualBoundingBoxLeft : 0, right = Math.max(m.actualBoundingBoxRight, cur.offsetLeft + cur.offsetWidth - txt.offsetLeft);
+    el.style.setProperty('--bl', (txt.offsetLeft - left - padX) + 'px');
+    el.style.setProperty('--bw', (left + right + padX * 2) + 'px');
+    el.style.setProperty('--bt', (base - cap - size * .07) + 'px');
+    el.style.setProperty('--bh', (cap + size * .17) + 'px');
   };
-  const fit = el => {
-    el.style.fontSize = '';
-    const inline = getComputedStyle(rot).display === 'inline-grid';
+  // a long word shrinks just enough to keep "Ask" and the word on one line (two on phones)
+  const fit = word => {
+    const keep = txt.textContent;
+    el.style.fontSize = ''; txt.textContent = word;
     const box = h1.parentElement, bs = getComputedStyle(box), full = box.clientWidth - parseFloat(bs.paddingLeft) - parseFloat(bs.paddingRight) - 8;
-    const room = inline ? full - ask.offsetWidth - parseFloat(getComputedStyle(h1).fontSize) * .3 : full;
-    const w = el.getBoundingClientRect().width, k = Math.min(1, room / w);
+    const room = getComputedStyle(rot).display === 'inline-grid' ? full - ask.offsetWidth - parseFloat(getComputedStyle(h1).fontSize) * .3 : full;
+    const k = Math.min(1, room / el.getBoundingClientRect().width);
     if (k < 1) el.style.fontSize = k + 'em';
-    if (inline) rot.style.width = Math.ceil(w * k) + 'px';
-    label(el);
+    txt.textContent = keep;
   };
-  const tick = () => {
-    i = (i + 1) % words.length;
-    const old = rot.querySelector('span:not(.out)'), next = document.createElement('span');
-    next.textContent = words[i]; next.className = 'in';
-    old.classList.remove('in'); old.classList.add('out');
-    rot.appendChild(next); fit(next);
-    if (words[i] === 'dangerous.') danger(next);
-    setTimeout(() => old.remove(), 450);
-    setTimeout(tick, i === 0 ? 3400 : 2100);
-  };
-  // hold the headline's height so a narrower word never nudges the copy below it
+  // hold the headline's height so the copy underneath never moves
   const lock = () => { h1.style.height = ''; h1.style.height = h1.getBoundingClientRect().height + 'px'; };
-  document.fonts.ready.then(() => { fit(rot.firstElementChild); lock(); setTimeout(tick, 2600); });
-  addEventListener('resize', () => { fit(rot.querySelector('span:not(.out)')); lock(); });
+  const set = t => { txt.textContent = t; label(); };
+  document.fonts.ready.then(() => {
+    fit(words[0]); label(); lock();
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { cur.remove(); label(); return; }
+    let w = 0, n = words[0].length, del = true;
+    const step = () => {
+      const word = words[w];
+      if (del) {
+        set(word.slice(0, --n));
+        if (n > 0) return setTimeout(step, 45);
+        del = false; w = (w + 1) % words.length; fit(words[w]); return setTimeout(step, 260);
+      }
+      set(words[w].slice(0, ++n));
+      if (n < words[w].length) return setTimeout(step, 70 + Math.random() * 40);
+      del = true; setTimeout(step, w === 0 ? 2600 : 1700);
+    };
+    setTimeout(step, 2600);
+  });
+  addEventListener('resize', () => { fit(words.find(x => x.startsWith(txt.textContent)) || txt.textContent); label(); lock(); });
 })();
 
 // comparison card: Face ID, then the swap, then the receipt
