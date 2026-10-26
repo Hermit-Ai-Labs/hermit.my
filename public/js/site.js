@@ -116,13 +116,13 @@ show(0);
   const words = ['anything.', 'dangerous.', 'sexual.', 'trading.', 'uncensored.'];
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   let i = 0;
-  // "dangerous." gets typed out over a white brush stroke
+  // "dangerous." gets typed out onto its label
   const danger = el => {
     const word = el.textContent;
     el.classList.add('danger'); el.textContent = '';
-    const ink = document.createElement('b'), txt = document.createElement('i'), cur = document.createElement('u');
-    ink.className = 'ink'; txt.className = 'txt'; cur.className = 'cur';
-    el.append(ink, txt, cur);
+    const txt = document.createElement('i'), cur = document.createElement('u');
+    txt.className = 'txt'; cur.className = 'cur';
+    el.append(txt, cur);
     let n = 0;
     const type = () => {
       txt.textContent = word.slice(0, ++n);
