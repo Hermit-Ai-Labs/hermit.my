@@ -16,7 +16,7 @@
   <img alt="Light and dark" src="https://img.shields.io/badge/themes-light%20%2B%20dark-1F1E24?style=flat-square">
 </p>
 
-<p align="center"><img src="public/og.jpg" width="720" alt="Ask anything. Uncensored. Private. Never leaves your phone."></p>
+<p align="center"><img src="public/og.jpg" width="720" alt="Hermit. Loyal to you. Your own private agent to earn, trade and pay. Runs on your computer. Holds your keys. hermit.my, Mac and iPhone."></p>
 
 ---
 
