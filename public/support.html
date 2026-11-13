@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Support · Hermit</title>
+<meta name="description" content="Get help with Hermit, the private on-device AI and wallet for iPhone and Mac.">
+<link rel="canonical" href="https://hermit.my/support">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style>
+:root{--paper:#F4F4F2;--ink:#121212;--muted:#5f5f5c;--line:#e2e1dc;--purple:#4E1F96;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Geist",system-ui,sans-serif;
+  padding:max(40px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) 80px max(20px,env(safe-area-inset-left))}
+main{max-width:680px;margin:0 auto}
+a{color:var(--purple)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;font-size:14px}
+.top a{text-decoration:none;color:var(--ink);font-weight:500}
+h1{font:400 clamp(40px,7vw,60px)/1.02 "Newsreader",Georgia,serif;letter-spacing:-.02em;margin:0 0 10px}
+h1 em{font-style:italic}
+.date{color:var(--muted);font-size:14px;margin:0 0 40px}
+h2{font:600 17px/1.3 "Geist",system-ui,sans-serif;margin:36px 0 8px}
+p,li{color:#2b2b29;max-width:65ch}
+ul{padding-left:20px}
+li{margin:4px 0}
+.box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#fff;margin:28px 0}
+.box p{margin:0}
+.box p+p{margin-top:6px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><a href="/">Hermit</a><span>Support</span></div>
+  <h1>How can we <em>help?</em></h1>
+  <p class="date">Hermit for iPhone and Mac</p>
+
+  <div class="box">
+    <p><b>Email:</b> <a href="mailto:contact@hermit.my">contact@hermit.my</a>.</p>
+    <p><b>X:</b> <a href="https://x.com/hermitai_">@hermitai_</a></p>
+  </div>
+  <p>Please tell us your device, its iOS or macOS version, and what happened. Never send us your recovery phrase or keys. We will never ask for them.</p>
+
+  <h2>What is Hermit?</h2>
+  <p>A private AI assistant with a crypto wallet built in. The AI runs on your iPhone or Mac, and your chats, memory and wallet keys stay on your device. There is no account.</p>
+
+  <h2>Downloading the AI model</h2>
+  <p>On first launch Hermit downloads its AI model, about 2.8 GB. Wi-Fi is recommended. Devices with less memory get the smaller Lite model, about 1.4 GB.</p>
+
+  <h2>Does the AI work offline?</h2>
+  <p>Yes. Once the model is downloaded, it answers on your device without the internet. Prices, balances and swaps still need a connection.</p>
+
+  <h2>What is Private Cloud?</h2>
+  <p>An optional mode for a larger model, off unless you turn it on or pick it. Your message is sent to NEAR AI Cloud, which runs the model inside a hardware-secured enclave that your device verifies first. Hermit doesn't store these chats. The built-in key has a small daily limit; you can add your own NEAR AI key in Settings. See the <a href="/privacy">privacy policy</a> for details.</p>
+
+  <h2>Wallets and keys</h2>
+  <p>Wallet keys are created and kept on your device, protected by Face ID, Touch ID or your passcode. Hermit can't see or recover them, so back up your recovery phrase and keep it somewhere safe. If you lose your device without a backup, we can't restore your wallet.</p>
+
+  <h2>Swaps</h2>
+  <p>Hermit can quote and make swaps through NEAR Intents. Nothing moves until you review the swap and approve it with Face ID, Touch ID or your passcode.</p>
+
+  <h2>Deleting your data</h2>
+  <p>Everything lives on your device. Delete a chat from the chat list, and remove a wallet from its wallet page (back up its recovery phrase first). Deleting the app removes its chats, memory and files. To be sure wallet keys are gone too, remove each wallet in the app before deleting it.</p>
+
+  <footer>© 2026 Hermit · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/">hermit.my</a></footer>
+</main>
+</body>
+</html>

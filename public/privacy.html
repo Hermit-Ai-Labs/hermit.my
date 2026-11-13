@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy · Hermit</title>
+<meta name="description" content="Hermit's privacy policy. No account. Your chats, memory and keys stay on your device.">
+<link rel="canonical" href="https://hermit.my/privacy">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style>
+:root{--paper:#F6F5F2;--card:#fff;--ink:#141414;--body:#2d2d2a;--muted:#6b6b66;--line:#e4e2dc;--purple:#4E1F96;--lav:#efe9fb;--lav2:#f7f3fd;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "Geist",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--purple);text-underline-offset:3px;text-decoration-thickness:1px}
+.bar{position:sticky;top:0;z-index:5;background:rgba(246,245,242,.82);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.bar.on{border-color:var(--line)}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:14px max(20px,env(safe-area-inset-left))}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px}
+.brand img{width:26px;height:26px}
+.seg{display:flex;background:#ebe9e3;border-radius:999px;padding:3px;font-size:13.5px}
+.seg a{padding:6px 14px;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:500;transition:color .15s}
+.seg a:hover{color:var(--ink)}
+.seg a[aria-current]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08),0 0 0 1px rgba(0,0,0,.03)}
+.hero{max-width:1080px;margin:0 auto;padding:64px max(20px,env(safe-area-inset-left)) 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);margin:0 0 18px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple)}
+h1{font:400 clamp(44px,7.5vw,76px)/1 "Newsreader",Georgia,serif;letter-spacing:-.025em;margin:0 0 18px;max-width:14ch}
+h1 em{font-style:italic;color:var(--purple)}
+.date{display:inline-block;color:var(--muted);font-size:13px;margin:0;padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.wrap{max-width:1080px;margin:0 auto;padding:40px max(20px,env(safe-area-inset-left)) 96px;display:grid;grid-template-columns:220px minmax(0,680px);gap:64px;align-items:start}
+aside{position:sticky;top:84px;font-size:13.5px}
+aside p{margin:0 0 10px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500}
+aside ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line);max-height:calc(100vh - 140px);overflow:auto}
+aside li{margin:0;padding:0}
+aside li::before{display:none}
+aside a{display:block;padding:4px 0 4px 14px;margin-left:-1px;border-left:1px solid transparent;color:var(--muted);text-decoration:none;line-height:1.4}
+aside a:hover{color:var(--ink)}
+aside a.cur{color:var(--purple);border-left-color:var(--purple)}
+article{min-width:0}
+.box{position:relative;border-radius:18px;padding:22px 24px;background:#fff;border:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.03);margin:0 0 40px}
+.box p{margin:0;color:var(--body);font-size:16.5px;line-height:1.65}
+.box b{color:var(--purple)}
+section{padding:28px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0;padding-top:0}
+h2{font:600 19px/1.3 "Geist",system-ui,sans-serif;letter-spacing:-.01em;margin:0 0 10px;display:flex;gap:10px;align-items:baseline}
+h2 .n{font:500 12px/1 ui-monospace,"SF Mono",Menlo,monospace;color:var(--purple);background:var(--lav);padding:4px 7px;border-radius:6px;flex:none;transform:translateY(-2px)}
+p,li{color:var(--body);max-width:66ch}
+p{margin:0 0 12px}
+ul{padding-left:0;list-style:none;margin:0 0 12px}
+li{position:relative;padding-left:20px;margin:7px 0}
+li::before{content:"";position:absolute;left:3px;top:.72em;width:6px;height:6px;border-radius:2px;background:#cbbcea}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+.foot-in{max-width:1080px;margin:0 auto;padding:22px max(20px,env(safe-area-inset-left)) 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;margin-left:16px}
+footer a:hover{color:var(--ink)}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-top:28px}aside{display:none}.hero{padding-top:40px}}
+@media (max-width:480px){footer a{margin:0 14px 0 0}.box{padding:18px}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in"><a class="brand" href="/"><img src="favicon.svg" alt="">Hermit</a><nav class="seg"><a href="terms">Terms</a><a href="privacy" aria-current="page">Privacy</a></nav></div></header>
+<div class="hero">
+  <p class="eyebrow">Legal</p>
+  <h1>Your data <em>stays with you.</em></h1>
+  <p class="date">Last updated November 13, 2026</p>
+</div>
+<main class="wrap">
+  <aside><p>On this page</p><ol><li><a href="#what-stays-on-your-device">What stays on your device</a></li><li><a href="#when-hermit-uses-the-interne">When Hermit uses the internet</a></li><li><a href="#what-we-collect">What we collect</a></li><li><a href="#analytics-and-crash-reports">Analytics and crash reports</a></li><li><a href="#children">Children</a></li><li><a href="#your-rights">Your rights</a></li><li><a href="#security">Security</a></li><li><a href="#changes">Changes</a></li><li><a href="#contact">Contact</a></li></ol></aside>
+  <article>
+  <div class="box"><p><b>In short:</b> Hermit has no account and no server that stores your data. Your chats, memory, files and wallet keys stay on your device. We don't track you, sell anything about you, or show ads. Your use of Hermit is also covered by our <a href="terms">Terms</a>.</p></div>
+  <section id="what-stays-on-your-device">
+    <h2>What stays on your device</h2>
+  <ul>
+    <li>The name you give Hermit, your chats, your memory notes and the files you add.</li>
+    <li>The AI model. Once downloaded, it runs on your device and answers without the internet.</li>
+    <li>Wallet keys. They are created on your device, sealed with the device's security chip and unlocked with Face ID, Touch ID or your passcode. Hermit can't see or recover them.</li>
+    <li>Calendar events, only if you allow calendar access. Hermit reads them on your device.</li>
+    <li>Contacts, automations, spending limits, settings and saved balances you see while offline.</li>
+  </ul>
+  </section>
+  <section id="when-hermit-uses-the-interne">
+    <h2>When Hermit uses the internet</h2>
+  <p>Hermit connects only to do what you ask. It sends no personal information beyond what each request needs:</p>
+  <ul>
+    <li><b>Downloading the AI model</b> from Hugging Face.</li>
+    <li><b>Prices and market data</b> from public sources such as Hyperliquid, CoinGecko and DefiLlama, and coin and company logos from public image sources.</li>
+    <li><b>Wallet balances and transactions</b> through public blockchain nodes (RPCs). A transaction you approve is broadcast to its blockchain, where it is public by nature, as with any wallet.</li>
+    <li><b>Private Cloud, if you use it.</b> It is optional and off unless you turn it on or pick it. Your message and the chat's context are then sent to NEAR AI Cloud (cloud-api.near.ai), which runs the model inside a hardware-secured enclave (Intel TDX with NVIDIA confidential GPUs). Before anything is sent, the app verifies the enclave's attestation on your device; for the GPU check it sends only the GPU's attestation evidence, never your message or key, to NVIDIA's attestation service. Hermit doesn't store these chats. A shared key built into the app is used by default, with a small daily limit counted on your device; you can add your own NEAR AI key, which is stored in your device's Keychain.</li>
+    <li><b>Swaps and bridges through Relay</b> (relay.link), which the Swap screen asks alongside NEAR Intents for a better price. It gets the same details: tokens, amount and your addresses.</li>
+    <li><b>NEAR staking and Hermit Guard.</b> Staking, unstaking and Hermit Guard vaults are transactions on NEAR mainnet that you approve. Hermit Guard is a public smart contract (hermit-guard.near): the rules, payments and receipts you put in it, including a reason you type, are public on the blockchain. A small helper we run calls standing orders when they're due; it only sees what is already public on chain.</li>
+    <li><b>Hermit Black Box</b>, if you turn it on. If you turn it on, each AI move you approve writes a salted hash, a short kind such as swap and the model id to hermit-blackbox.near on NEAR mainnet. That is public. Your chat, amounts and addresses are not sent, and the text behind each hash stays on your device. Hermit also reads the contract to check the model you run against its published hashes.</li>
+    <li><b>Hermit AI insurance</b>, if you use it. Buying cover and filing claims are transactions on NEAR mainnet that you approve. Payments and claims on hermit-insurance.near are public, including the evidence text you choose to file with a claim and the reasons the reviewer and Hermit write.</li>
+    <li><b>Trading on Hyperliquid</b>, if you use it. Orders, deposits and withdrawals you approve are signed on your device and sent to Hyperliquid with your address.</li>
+    <li><b>Websites you open in the in-app browser</b>, and the apps you connect your wallet to there. They see your public address once you connect.</li>
+    <li><b>Swaps through NEAR Intents</b> (the 1Click API at 1click.chaindefuser.com). To get a quote or make a swap, Hermit sends the token pair, the amount, and your refund and receiving addresses. Nothing moves until you approve the swap with Face ID, Touch ID or your passcode. You can also pick NEAR Intents' confidential swap option.</li>
+  </ul>
+  <p>Spending limits you set are kept and checked on your device.</p>
+  <p>Those services may log ordinary connection details, such as your IP address, under their own privacy policies.</p>
+  </section>
+  <section id="what-we-collect">
+    <h2>What we collect</h2>
+  <p>Nothing from the app. If you join the waitlist on hermit.my, we keep the email and answers you give us there, only to contact you about Hermit. Write to us and we'll delete them.</p>
+  </section>
+  <section id="analytics-and-crash-reports">
+    <h2>Analytics and crash reports</h2>
+  <p>The app contains no analytics or tracking. If you test Hermit through TestFlight and choose to send feedback or crash reports, Apple shares those with us under Apple's terms.</p>
+  </section>
+  <section id="children">
+    <h2>Children</h2>
+  <p>Hermit is for people 18 and over, and we don't knowingly collect anything from children.</p>
+  </section>
+  <section id="your-rights">
+    <h2>Your rights</h2>
+  <p>Because the app keeps your data on your device, you can see, change or delete it yourself: delete a chat, edit memory in Settings, or delete the app to remove everything (your wallets stay on their blockchains, reachable with your recovery phrase). For anything we hold, like a waitlist email, write to us to see, fix or delete it. We don't sell or share personal information.</p>
+  </section>
+  <section id="security">
+    <h2>Security</h2>
+  <p>Keys are sealed by your device's security chip and unlocked only while signing. Connections use HTTPS. No system is perfectly secure, so keep your device updated, use a passcode and keep your recovery phrase offline.</p>
+  </section>
+  <section id="changes">
+    <h2>Changes</h2>
+  <p>If this policy changes, we'll update this page and the date above.</p>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+  <p>Hermit, <a href="mailto:contact@hermit.my">contact@hermit.my</a></p>
+  </section>
+  </article>
+</main>
+<footer><div class="foot-in"><span>© 2026 Hermit</span><span><a href="terms">Terms</a><a href="privacy">Privacy</a><a href="support">Support</a><a href="/">hermit.my</a></span></div></footer>
+<script>
+(()=>{const bar=document.querySelector('.bar');const on=()=>bar.classList.toggle('on',scrollY>8);on();addEventListener('scroll',on,{passive:true});
+const links=[...document.querySelectorAll('aside a')];const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('cur'));const a=map.get(e.target.id);a&&a.classList.add('cur')}})},{rootMargin:'-90px 0px -70% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s))})();
+</script>
+</body>
+</html>

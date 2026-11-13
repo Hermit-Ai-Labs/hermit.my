@@ -62,18 +62,24 @@ The app itself lives in [hermit-app](https://github.com/Hermit-Ai-Labs/hermit-ap
 
 ```
 public/
-  index.html          one page, no framework
-  css/base.css        design tokens (light and dark), buttons, theme switch, toasts
-  css/site.css        the page: notch navbar, hero, product stage, sections, join sheet
-  js/theme.js         theme before first paint, the theme switch, toasts
-  js/liquid.js        edge refraction for the glass surfaces (Chromium; frosted glass elsewhere)
-  js/site.js          navbar shape, scroll reveals, the join sheet, the product stage
-  art/                paintings, 3D icons, partner marks, the voxel crab mascots
+  index.html          the home page: story, product stage, what runs on NEAR, FAQ
+  dmg.html            the Mac download, with what's new in each build
+  gallery/            screens and diagrams (index.html, data.json, img/); full-size downloads come from hermit.my
+  terms.html          terms and conditions
+  privacy.html        the privacy policy
+  support.html        help and contact
+  waitlist.html       the sign-up card (wl.css, wl.js)
+  hermit.css          shared design tokens, light and dark
+  liquid.js           edge refraction for the glass surfaces (Chromium; frosted glass elsewhere)
+  theme.js            theme before first paint, the theme switch, toasts
+  art/                the paintings, the sky, 3D icons and the voxel mascots the pages use
   brand/              the spiral mark and app icon
+  dmg-shots/          the Mac screens on the download page
+  og.jpg, og-mac.jpg  link previews
 scripts/deploy.sh     publish to Cloudflare Pages
 ```
 
-There is no build step. Every file in `public/` is served as it is.
+There is no build step. Every file in `public/` is served as it is, and it's the same code that runs on hermit.my.
 
 ## Run it
 

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Hermit Screenshots</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Layout: a quiet contact-sheet wall, grouped like a press kit; the shots are the only color. */
+:root {
+  --bg: #f4f3f8; --panel: #ffffff; --fg: #1d1b26; --muted: #6c6880; --line: #e3e0ec; --accent: #4d1d95;
+  --scrim: rgba(20, 17, 30, .92);
+  --sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Instrument Serif", ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #131119; --panel: #1c1a25; --fg: #efedf5; --muted: #9d98b0; --line: #2c2938; --accent: #b9a2f2; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #131119; --panel: #1c1a25; --fg: #efedf5; --muted: #9d98b0; --line: #2c2938; --accent: #b9a2f2; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-block: 40px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: grid; gap: 10px; margin-bottom: 28px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6vw, 60px); line-height: 1; margin: 0; letter-spacing: -.01em; }
+h1 em { color: var(--accent); }
+.lede { color: var(--muted); max-width: 62ch; margin: 0; }
+nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 4px; }
+nav a { font-size: 13px; font-weight: 500; color: var(--fg); text-decoration: none; border: 1px solid var(--line); background: var(--panel);
+  padding: 6px 12px; border-radius: 999px; }
+nav a:hover, nav a:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+nav a span { color: var(--muted); font-variant-numeric: tabular-nums; margin-left: 4px; }
+section { margin-top: 44px; scroll-margin-top: 16px; }
+.sh { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 18px; }
+h2 { font-size: 20px; font-weight: 600; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+.sh p { margin: 0; color: var(--muted); font-size: 13px; }
+.grid { columns: 4 240px; column-gap: 16px; }
+.grid.wide { columns: 3 320px; }
+figure { break-inside: avoid; margin: 0 0 16px; }
+figure button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  background: var(--panel); cursor: zoom-in; transition: transform .18s ease, border-color .18s ease; }
+figure button:hover { transform: translateY(-2px); border-color: var(--accent); }
+figure button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+figure img { display: block; width: 100%; height: auto; }
+figcaption { font-size: 13px; color: var(--muted); padding: 7px 2px 0; }
+.box { position: fixed; inset: 0; z-index: 20; background: var(--scrim); display: grid; grid-template-rows: 1fr auto;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.box img { max-width: 100%; max-height: 100%; margin: auto; object-fit: contain; min-height: 0; border-radius: 10px; }
+.stage { display: flex; min-height: 0; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #efedf5; padding-top: 12px; flex-wrap: wrap; }
+.bar p { margin: 0; font-size: 14px; }
+.bar small { color: #a7a2ba; font-variant-numeric: tabular-nums; }
+.bar .ctl { display: flex; gap: 8px; }
+.bar button { font: 500 13px var(--sans); color: #efedf5; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+.bar .dl { font: 500 13px var(--sans); color: #efedf5; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); padding: 7px 14px; border-radius: 999px; text-decoration: none; }
+.bar .dl:hover, .bar button:hover, .bar button:focus-visible { background: rgba(255,255,255,.2); outline: none; }
+footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { figure button { transition: none; } figure button:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Hermit 2.0 · Mac and iPhone</div>
+    <h1>Hermit, <em>in pictures</em></h1>
+    <p class="lede">Images ready to post: how Hermit works, the App Store set, real money flows from testing, and screens from the app. Tap any shot to see it large. Use Download to save the full-size image.</p>
+    <nav id="nav" aria-label="Groups"></nav>
+  </header>
+  <div id="groups"></div>
+  <footer>62 images · Hermit AI Labs · hermit.my</footer>
+</div>
+
+<div class="box" id="box" hidden role="dialog" aria-modal="true" aria-label="Screenshot">
+  <div class="stage"><img id="big" alt=""></div>
+  <div class="bar">
+    <div><p id="cap"></p><small id="pos"></small></div>
+    <div class="ctl"><button id="prev" type="button">Previous</button><button id="next" type="button">Next</button><a id="dl" class="dl" download>Download</a><button id="close" type="button">Close</button></div>
+  </div>
+</div>
+
+<script>
+const GROUPS = [
+  { key: 'New this week', id: 'new', title: 'New this week', note: 'Budgets on NEAR, staking and Hyperliquid withdraw' },
+  { key: 'App Store, iPhone', id: 'store-iphone', title: 'App Store, iPhone', note: 'The 10 shots on the iPhone listing' },
+  { key: 'App Store, Mac', id: 'store-mac', title: 'App Store, Mac', note: 'The 5 shots on the Mac listing', wide: true },
+  { key: 'Real flows', id: 'flows', title: 'Real flows', note: 'Approvals, batch payments, web apps with Hermit’s wallet' },
+  { key: 'How it works', id: 'diagrams', title: 'How it works', note: 'Architecture diagrams from the README', wide: true },
+  { key: 'In the app', id: 'app', title: 'In the app', note: 'Screens from the current build' },
+];
+let all = [];
+fetch('data.json').then(r => r.json()).then(items => {
+  all = items;
+  const nav = document.getElementById('nav'), root = document.getElementById('groups');
+  for (const g of GROUPS) {
+    const list = items.filter(i => i.g === g.key);
+    if (!list.length) continue;
+    nav.insertAdjacentHTML('beforeend', `<a href="#${g.id}">${g.title}<span>${list.length}</span></a>`);
+    const s = document.createElement('section'); s.id = g.id;
+    s.innerHTML = `<div class="sh"><h2>${g.title}</h2><p>${g.note}</p></div><div class="grid${g.wide ? ' wide' : ''}"></div>`;
+    const grid = s.querySelector('.grid');
+    for (const it of list) {
+      const n = items.indexOf(it);
+      const f = document.createElement('figure');
+      f.innerHTML = `<button type="button" aria-label="Open ${it.c}"><img src="img/${it.f}" alt="${it.c}" width="${it.w}" height="${it.h}" loading="lazy"></button><figcaption>${it.c}</figcaption>`;
+      f.querySelector('button').addEventListener('click', () => open(n));
+      grid.appendChild(f);
+    }
+    root.appendChild(s);
+  }
+});
+const box = document.getElementById('box'), big = document.getElementById('big');
+let at = 0, last = null;
+function show() { const it = all[at]; big.src = 'img/' + it.f; big.alt = it.c;
+  document.getElementById('cap').textContent = it.c; const dl = document.getElementById('dl'); dl.href = 'https://hermit.my/gallery/full/' + it.f.replace('.webp', '.png'); dl.setAttribute('download', 'hermit-' + it.f.replace('.webp', '.png')); document.getElementById('pos').textContent = `${it.g} · ${at + 1} of ${all.length}`; }
+function open(n) { last = document.activeElement; at = n; show(); box.hidden = false; document.getElementById('close').focus(); }
+function close() { box.hidden = true; if (last) last.focus(); }
+document.getElementById('prev').onclick = () => { at = (at - 1 + all.length) % all.length; show(); };
+document.getElementById('next').onclick = () => { at = (at + 1) % all.length; show(); };
+document.getElementById('close').onclick = close;
+box.addEventListener('click', e => { if (e.target === box || e.target.classList.contains('stage')) close(); });
+document.addEventListener('keydown', e => { if (box.hidden) return;
+  if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') document.getElementById('next').click(); if (e.key === 'ArrowLeft') document.getElementById('prev').click(); });
+</script>
+
+</body>
+</html>

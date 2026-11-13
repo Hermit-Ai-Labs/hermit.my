@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hermit for Mac</title>
+<meta name="description" content="Hermit for Mac: AI that works offline. A private assistant and self-custody wallet that run on your Mac. Signed and notarized by Apple.">
+<link rel="canonical" href="https://hermit.my/dmg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hermit">
+<meta property="og:title" content="Hermit for Mac">
+<meta property="og:description" content="Your private agent, on your Mac. Free, notarized by Apple, for macOS 26.">
+<meta property="og:url" content="https://hermit.my/dmg">
+<meta property="og:image" content="https://hermit.my/og-mac.jpg?v=3">
+<meta property="og:image:secure_url" content="https://hermit.my/og-mac.jpg?v=3">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hermit on the Mac download page: the app icon, Offline AI that can't leak, a Download for Mac button, version 2.0, signed and notarized by Apple, free, macOS 26">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hermitai_">
+<meta name="twitter:title" content="Hermit for Mac">
+<meta name="twitter:description" content="Your private agent, on your Mac. Free, notarized by Apple, for macOS 26.">
+<meta name="twitter:image" content="https://hermit.my/og-mac.jpg?v=3">
+<meta name="twitter:image:alt" content="Hermit on the Mac download page: the app icon, Offline AI that can't leak, a Download for Mac button, version 2.0, signed and notarized by Apple, free, macOS 26">
+<link rel="icon" href="/favicon.svg">
+<style>
+:root{--ink:#1d1d1f;--muted:#6e6e73;--faint:#86868b;--line:#d2d2d7;--soft:#f5f5f7;--blue:#0071e3;--blue-ink:#0066cc;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font:17px/1.47 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;
+  letter-spacing:-.022em;-webkit-font-smoothing:antialiased;padding-bottom:max(48px,env(safe-area-inset-bottom))}
+a{color:var(--blue-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:980px;margin:0 auto;padding:0 max(22px,env(safe-area-inset-left)) 0 max(22px,env(safe-area-inset-right))}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:52px}
+.top .brand{display:flex;align-items:center;gap:8px;color:var(--ink);font-weight:600;font-size:17px}
+.top .brand img{width:26px;height:26px}
+.top nav{display:flex;gap:20px;font-size:14px}
+.top nav a{color:var(--muted)}
+.top .mini{display:none;background:var(--blue);color:#fff;border-radius:980px;padding:4px 14px;font-size:13px;font-weight:600}
+.top.scrolled .mini{display:inline-block}
+.top.scrolled nav{display:none}
+
+.head{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;padding:44px 0 34px}
+.icon{width:200px;height:200px;filter:drop-shadow(0 12px 24px rgba(0,0,0,.18))}
+.icon img{width:100%;height:100%;display:block}
+h1{font-size:40px;line-height:1.1;font-weight:700;letter-spacing:-.015em;margin:0}
+h1 .badge{display:inline-block;vertical-align:middle;margin-left:8px;font-size:12px;font-weight:600;letter-spacing:0;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.sub{font-size:22px;line-height:1.3;color:var(--muted);margin:6px 0 4px;font-weight:400}
+.dev{font-size:17px;margin:0 0 14px}
+.facts{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--faint);font-size:14px;margin:0 0 18px}
+.cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.get{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-size:17px;font-weight:600;letter-spacing:-.01em;
+  border-radius:980px;padding:11px 24px;transition:background .15s ease,transform .12s ease;text-decoration:none}
+.get:hover{background:#0077ed;text-decoration:none}
+.get:active{transform:scale(.97)}
+.get svg{width:17px;height:17px}
+.cta small{color:var(--faint);font-size:13px;line-height:1.4}
+
+.strip{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip div{flex:1 0 auto;min-width:118px;text-align:center;padding:12px 14px 13px;position:relative}
+.strip div+div::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
+.strip b{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
+.strip span{display:block;font-size:22px;font-weight:700;color:#5e5e63;margin:3px 0 1px;letter-spacing:-.01em}
+.strip i{display:block;font-style:normal;font-size:12px;color:var(--faint)}
+
+section{padding:30px 0 6px}
+section+section{border-top:1px solid var(--line);margin-top:24px}
+h2{font-size:24px;font-weight:700;letter-spacing:-.01em;margin:0 0 14px}
+.row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.seg{display:inline-flex;background:var(--soft);border-radius:9px;padding:2px}
+.seg button{all:unset;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);padding:5px 14px;border-radius:7px;transition:background .15s ease,color .15s ease}
+.seg button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.gallery{position:relative}
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 16px;scrollbar-width:thin;scroll-behavior:smooth}
+.shots img{scroll-snap-align:start;flex:none;border:1px solid rgba(0,0,0,.07);background:var(--soft)}
+.shots.mac img{width:min(620px,84vw);height:auto;aspect-ratio:1152/720;border-radius:12px}
+.shots.ios img{width:min(232px,52vw);height:auto;aspect-ratio:660/1434;border-radius:22px}
+.shots[hidden]{display:none}
+.arrow{position:absolute;top:calc(50% - 26px);width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.92);
+  box-shadow:0 2px 10px rgba(0,0,0,.16);cursor:pointer;display:grid;place-items:center;color:var(--ink);transition:opacity .2s ease;z-index:2}
+.arrow.prev{left:-12px}.arrow.next{right:-12px}
+.arrow[disabled]{opacity:0;pointer-events:none}
+.arrow svg{width:14px;height:14px}
+
+.desc{white-space:pre-line;color:var(--ink);font-size:17px;max-height:9.3em;overflow:hidden;position:relative;transition:max-height .35s ease}
+.desc.open{max-height:200em}
+.desc:not(.open)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3em;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.near{display:inline-flex;align-items:center;gap:6px;margin:0 0 14px;padding:4px 11px 4px 9px;border-radius:980px;background:var(--soft);color:var(--muted);font-size:13px;font-weight:500;letter-spacing:-.01em}
+.near svg{width:14px;height:14px;fill:currentColor}
+.near:hover{text-decoration:none;color:var(--ink)}
+.more{all:unset;cursor:pointer;color:var(--blue-ink);font-size:17px;margin-top:4px}
+.new-meta{color:var(--faint);font-size:15px}
+ul{padding-left:20px;margin:8px 0 0}
+li{margin:5px 0}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0}
+.steps li{counter-increment:s;background:var(--soft);border-radius:16px;padding:16px 18px;margin:0;font-size:15px;color:#424245}
+.st-art{display:block;width:100%;height:auto;margin:0 0 12px;border-radius:14px;font-family:inherit}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-weight:600;font-size:13px;margin-bottom:8px}
+.card{background:var(--soft);border-radius:18px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
+.card svg{flex:none;width:30px;height:30px;color:var(--blue)}
+.card p{margin:0;color:#424245;font-size:15px}
+.card p+p{margin-top:6px}
+.card b{color:var(--ink);font-size:17px}
+dl{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;margin:0}
+dl div{border-top:1px solid var(--line);padding:11px 0 12px}
+dt{font-size:13px;color:var(--faint)}
+dd{margin:2px 0 0;font-size:15px;color:var(--ink)}
+.links{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:14px;font-size:15px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+
+@media (max-width:760px){
+  body{font-size:16px}
+  .head{grid-template-columns:110px 1fr;gap:18px;padding:26px 0 22px;align-items:start}
+  .icon{width:110px;height:110px}
+  h1{font-size:26px}
+  .sub{font-size:16px}
+  .dev{font-size:15px;margin-bottom:10px}
+  .facts{display:none}
+  .cta{flex-direction:column;align-items:stretch;gap:8px}
+  .get{justify-content:center;white-space:nowrap;font-size:16px;padding:10px 18px}
+  .steps{grid-template-columns:1fr}
+  dl{grid-template-columns:1fr 1fr}
+  .arrow{display:none}
+  .top nav{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/dmg-shots/mac-icon-256.png" alt="" width="26" height="26">Hermit</a>
+    <nav><a href="https://docs.hermit.my">Docs</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav>
+    <a class="mini" href="https://models.hermit.my/dmg/Hermit.dmg">Download</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="head">
+    <div class="icon"><img src="/dmg-shots/mac-icon-512.png" alt="Hermit app icon" width="200" height="200"></div>
+    <div>
+      <h1>Hermit <span class="badge">18+</span></h1>
+      <p class="sub">Private AI that works offline</p>
+      <p class="dev"><a href="/">Hermit</a></p>
+      <p class="facts"><span>Free</span><span>Productivity</span><span>Designed for Mac</span><span>No account</span></p>
+      <div class="cta">
+        <a class="get" href="https://models.hermit.my/dmg/Hermit.dmg" download="Hermit-2.0.dmg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download for Mac
+        </a>
+        <small>Version 2.0, 55 MB<br>Signed and notarized by Apple</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip" aria-label="App details">
+    <div><b>Category</b><span>Productivity</span><i>Mac app</i></div>
+    <div><b>Size</b><span>55 MB</span><i>Download</i></div>
+    <div><b>Version</b><span>2.0</span><i>Nov 13, 2026</i></div>
+    <div><b>Requires</b><span>macOS 26</span><i>Apple silicon</i></div>
+    <div><b>Language</b><span>EN</span><i>English</i></div>
+    <div><b>Price</b><span>Free</span><i>No ads, no account</i></div>
+  </div>
+
+  <section aria-labelledby="shots-h">
+    <div class="row">
+      <h2 id="shots-h">Screenshots</h2>
+      <div class="seg" role="tablist" aria-label="Device">
+        <button role="tab" aria-selected="true" data-show="mac">Mac</button>
+        <button role="tab" aria-selected="false" data-show="ios">iPhone</button>
+      </div>
+    </div>
+    <div class="gallery">
+      <button class="arrow prev" aria-label="Previous screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <div class="shots mac" data-set="mac">
+        <img src="/dmg-shots/mac-01-home.jpg" alt="Hermit home on Mac: chat with the on-device model" width="1152" height="720">
+        <img src="/dmg-shots/mac-02-wallets.jpg" alt="Wallets on Mac" loading="lazy" width="1152" height="720">
+        <img src="/dmg-shots/mac-03-trade-markets.jpg" alt="Trade markets on Mac" loading="lazy" width="1152" height="720">
+        <img src="/dmg-shots/mac-04-earn-defi.jpg" alt="Earn on Mac" loading="lazy" width="1152" height="720">
+        <img src="/dmg-shots/mac-05-explore.jpg" alt="Explore apps on Mac" loading="lazy" width="1152" height="720">
+      </div>
+      <div class="shots ios" data-set="ios" hidden>
+        <img src="/dmg-shots/ios-01-home.jpg" alt="Home on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-02-chat-steps.jpg" alt="Chat with tool steps on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-03-chat-swap.jpg" alt="A swap prepared in chat on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-04-sheet-approval.jpg" alt="The approval sheet on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-05-status-success.jpg" alt="A swap that went through on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-06-sheet-proof.jpg" alt="Private Cloud proof on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-07-calendar.jpg" alt="Calendar on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-08-wallets-w.jpg" alt="Wallets on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-09-trade-markets.jpg" alt="Trade markets on iPhone" loading="lazy" width="660" height="1434">
+        <img src="/dmg-shots/ios-10-earn-defi.jpg" alt="Earn on iPhone" loading="lazy" width="660" height="1434">
+      </div>
+      <button class="arrow next" aria-label="Next screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </section>
+
+  <section aria-labelledby="about-h">
+    <h2 id="about-h" class="sr">About Hermit</h2>
+    <a class="near" href="https://docs.hermit.my/near/overview/"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M17.4 2.7l-3.7 5.6c-.3.4.2.9.6.5l3.7-3.2c.1-.1.3 0 .3.2v10.2c0 .2-.2.3-.3.1L6.3 2.8C5.9 2.3 5.3 2 4.6 2h-.3C3.6 2 3 2.6 3 3.3v17.4c0 .7.6 1.3 1.3 1.3.5 0 .9-.2 1.1-.6l3.7-5.6c.3-.4-.2-.9-.6-.5l-3.7 3.2c-.1.1-.3 0-.3-.2V7.1c0-.2.2-.3.3-.1l11.1 13.2c.5.5 1.1.8 1.8.8h.3c.7 0 1.3-.6 1.3-1.3V3.3C21 2.6 20.4 2 19.7 2c-.5 0-.9.2-1.1.6z"/></svg>Powered by NEAR</a>
+    <div class="desc" id="desc">Hermit is your own AI, living on your Mac. Download the model once and it answers anywhere, even offline. Your chats, memory, files and wallet keys stay on your Mac. No account, no ads, no tracking.
+
+<b>Private by design</b>
+Hermit 1.3, the model we trained ourselves on 30 tools, runs entirely on your Mac. Turn off Wi-Fi and keep chatting.
+Nothing you say is uploaded. There's no Hermit server and no sign-up: you just tell Hermit your name.
+Optional Private Cloud for bigger questions: a larger open model on NEAR AI Cloud, inside a hardware-sealed enclave (Intel TDX and NVIDIA confidential GPUs). Hermit verifies the enclave on your Mac before sending anything, including that it runs an OS image NEAR publishes, and shows you every check.
+
+<b>An assistant that knows you</b>
+Memory: Hermit keeps the notes you choose and uses them in every chat.
+Projects keep chats and goals together. Automations: describe a routine in plain words and it runs on schedule while Hermit is open.
+Works with your calendar and files, with your permission, on your Mac.
+
+<b>Money, on your terms</b>
+A self-custody wallet: keys are created on your Mac, protected by the Secure Enclave, and never leave it. Hermit can't see or recover them.
+Ask in plain words: "how much NEAR would I get for 20 USDC on Base?" or "swap 20 USDC on Base to NEAR". Hermit gets a real quote through NEAR Intents and opens a clear review. Nothing moves until you approve with Touch ID.
+Stake NEAR from Earn: pick a validator, approve with Touch ID, unstake any time.
+Spending limits you set, checked on your Mac, including a cap on anything the AI prepares.
+Live crypto prices, markets and yields, with no account needed to browse.
+
+Hermit is an interface to public networks. We never hold your keys or funds, and nothing is bought, sold or held by us. Prices are informational, not financial advice.</div>
+    <button class="more" id="more" aria-expanded="false" aria-controls="desc">more</button>
+  </section>
+
+  <section aria-labelledby="new-h">
+    <div class="row"><h2 id="new-h">What's New</h2><span class="new-meta">Version 2.0, Nov 13, 2026</span></div>
+    <ul>
+      <li>Black box and AI insurance, both live on NEAR mainnet. Turn on the Black box and each AI move you approve leaves a fingerprint on NEAR, never the chat; the app also checks your model against the hashes Hermit published there (<a href="https://nearblocks.io/address/hermit-blackbox.near" target="_blank" rel="noopener">hermit-blackbox.near</a>). AI insurance covers AI mistakes: 1 USDC for 30 days into a public pool, and it unlocks once the Black box is on (<a href="https://nearblocks.io/address/hermit-insurance.near" target="_blank" rel="noopener">hermit-insurance.near</a>). Both cards are in Wallets, Security and in Settings, Safety.</li>
+      <li>Budgets: set aside a small amount on NEAR, split it into pockets with limits, and let standing orders pay on a schedule or hand an agent a key for one pocket. You find it in Wallets, then Security. It runs on our NEAR contract, <a href="https://nearblocks.io/address/hermit-guard.near" target="_blank" rel="noopener">hermit-guard.near</a>.</li>
+      <li>Stake NEAR from your wallet: pick a validator, approve with Touch ID, unstake any time. Find it in Earn, or ask "stake 5 NEAR".</li>
+      <li>Screens open instantly with your last real data, then refresh.</li>
+      <li>Private Cloud proof now also checks that the enclave runs an OS image NEAR publishes.</li>
+      <li>Swap quotes whose NEAR Intents signature fails are refused.</li>
+      <li>Hermit 1.3, our new model: it can sell tokens, search any token, read your positions, cancel orders, set a stop-loss, create automations and schedule payments, all on your Mac.</li>
+      <li>Your Solana tokens with value and profit, Sell 25, 50 or 100%, and your Hyperliquid position right under the order form.</li>
+      <li>Automations run on schedule while Hermit is open. Batch send now works on Solana too: one review for the whole list.</li>
+      <li>The AI model downloads by itself on first launch, in parallel pieces from the fastest server near you.</li>
+      <li>Earn opens on Savings with Deposit on every Aave pool; other pools open their app inside Hermit, wallet connected.</li>
+      <li>Spot and Memes on Solana: any token on Jupiter's verified list, bought from your wallet with the usual review.</li>
+      <li>Explore opens any site you type and remembers Your sites; the search forgives typos.</li>
+      <li>Deposits show the moment they land; Activity is a real history; Hyperliquid deposits take the cheapest route.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="install-h">
+    <h2 id="install-h">Install in three steps</h2>
+    <ol class="steps">
+      <li><svg class="st-art" viewBox="0 0 220 120" role="img" aria-label="The Hermit disk image in your Downloads folder">
+          <rect x="1" y="1" width="218" height="118" rx="14" fill="#fff" stroke="#E5E5EA"/>
+          <g transform="translate(82 16)"><rect x="0" y="12" width="56" height="62" rx="9" fill="#F2F2F7" stroke="#C7C7CC"/><rect x="8" y="50" width="40" height="14" rx="4" fill="#fff" stroke="#C7C7CC"/><circle cx="40" cy="57" r="2.5" fill="#34C759"/><image href="dmg-shots/mac-icon-256.png" x="13" y="17" width="30" height="30"/></g>
+          <text x="110" y="106" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1D1D1F">Hermit-2.0.dmg</text>
+        </svg>Open the downloaded <b>Hermit-2.0.dmg</b>.</li>
+      <li><svg class="st-art" viewBox="0 0 220 120" role="img" aria-label="Dragging Hermit onto the Applications folder">
+          <rect x="1" y="1" width="218" height="118" rx="14" fill="#fff" stroke="#E5E5EA"/>
+          <image href="dmg-shots/mac-icon-256.png" x="30" y="26" width="52" height="52"/>
+          <text x="56" y="98" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1D1D1F">Hermit</text>
+          <path d="M94 52h30" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/><path d="M122 44l10 8-10 8" fill="none" stroke="#0071E3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(140 28)"><path d="M0 8a6 6 0 0 1 6-6h14l6 6h20a6 6 0 0 1 6 6v28a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6Z" fill="#5AC8FA"/><path d="M0 16h52v26a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6Z" fill="#32ADE6"/><path d="M19 38l7-13 7 13M21.5 33.5h9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <text x="166" y="98" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1D1D1F">Applications</text>
+        </svg>Drag <b>Hermit</b> onto the <b>Applications</b> folder.</li>
+      <li><svg class="st-art" viewBox="0 0 220 120" role="img" aria-label="Hermit downloading its model on first launch">
+          <rect x="1" y="1" width="218" height="118" rx="14" fill="#fff" stroke="#E5E5EA"/>
+          <rect x="26" y="16" width="168" height="88" rx="10" fill="#F5F5F7" stroke="#D2D2D7"/><circle cx="38" cy="27" r="3" fill="#FF5F57"/><circle cx="48" cy="27" r="3" fill="#FEBC2E"/><circle cx="58" cy="27" r="3" fill="#28C840"/>
+          <circle cx="72" cy="66" r="19" fill="none" stroke="#E5E5EA" stroke-width="5"/><path d="M72 47a19 19 0 1 1-18.07 24.87" fill="none" stroke="#4D1D95" stroke-width="5" stroke-linecap="round"/><image href="dmg-shots/mac-icon-256.png" x="61" y="55" width="22" height="22"/>
+          <text x="104" y="62" font-size="10.5" font-weight="600" fill="#1D1D1F" textLength="74" lengthAdjust="spacingAndGlyphs">Getting ready</text><text x="104" y="77" font-size="9.5" fill="#6E6E73" textLength="76" lengthAdjust="spacingAndGlyphs">Downloading model</text>
+          <rect x="104" y="85" width="76" height="5" rx="2.5" fill="#E5E5EA"/><rect x="104" y="85" width="50" height="5" rx="2.5" fill="#4D1D95"/>
+        </svg>Open Hermit. On first launch it downloads its model (about 2.8 GB, Wi-Fi is best). Then it works offline.</li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="privacy-h">
+    <h2 id="privacy-h">App Privacy</h2>
+    <div class="card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <div>
+        <p><b>No analytics or tracking</b></p>
+        <p>Your chats, memory, files and wallet keys stay on your Mac. Hermit never asks for your recovery phrase. Details in the <a href="/privacy">privacy policy</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="info-h">
+    <h2 id="info-h">Information</h2>
+    <dl>
+      <div><dt>Developer</dt><dd>Hermit</dd></div>
+      <div><dt>Size</dt><dd>55 MB</dd></div>
+      <div><dt>Category</dt><dd>Productivity</dd></div>
+      <div><dt>Compatibility</dt><dd>Mac with Apple silicon, macOS 26 or later</dd></div>
+      <div><dt>Languages</dt><dd>English</dd></div>
+      <div><dt>Age rating</dt><dd>18+</dd></div>
+      <div><dt>Copyright</dt><dd>&copy; 2026 Hermit</dd></div>
+      <div><dt>Price</dt><dd>Free</dd></div>
+      <div><dt>Signature</dt><dd>Developer ID, notarized by Apple</dd></div>
+    </dl>
+    <div class="links">
+      <a href="/">Developer website</a>
+      <a href="https://docs.hermit.my">Documentation</a>
+      <a href="/support">App support</a>
+      <a href="/privacy">Privacy policy</a>
+      <a href="https://testflight.apple.com/join/ed9vUh7d">iPhone beta on TestFlight</a>
+      <a href="https://testflight.apple.com/join/P66H5DF8">Mac beta on TestFlight</a>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Hermit. Hermit is an interface to public networks and never holds your keys or funds. <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></footer>
+</main>
+
+<script>
+(function () {
+  var top = document.getElementById('top'), get = document.querySelector('.get');
+  function onScroll() { var r = get.getBoundingClientRect(); top.classList.toggle('scrolled', r.bottom < 52); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  var tabs = document.querySelectorAll('.seg button'), sets = document.querySelectorAll('.shots');
+  var prev = document.querySelector('.arrow.prev'), next = document.querySelector('.arrow.next');
+  function current() { return document.querySelector('.shots:not([hidden])'); }
+  function arrows() {
+    var s = current(); if (!s) return;
+    prev.disabled = s.scrollLeft < 8;
+    next.disabled = s.scrollLeft + s.clientWidth > s.scrollWidth - 8;
+  }
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t === b)); });
+      sets.forEach(function (s) { s.hidden = s.dataset.set !== b.dataset.show; s.scrollLeft = 0; });
+      arrows();
+    });
+  });
+  sets.forEach(function (s) { s.addEventListener('scroll', arrows, { passive: true }); });
+  prev.addEventListener('click', function () { var s = current(); s.scrollBy({ left: -s.clientWidth * 0.8 }); });
+  next.addEventListener('click', function () { var s = current(); s.scrollBy({ left: s.clientWidth * 0.8 }); });
+  window.addEventListener('resize', arrows); arrows();
+
+  var desc = document.getElementById('desc'), more = document.getElementById('more');
+  more.addEventListener('click', function () {
+    var open = desc.classList.toggle('open');
+    more.textContent = open ? 'less' : 'more'; more.setAttribute('aria-expanded', String(open));
+  });
+})();
+</script>
+</body>
+</html>
