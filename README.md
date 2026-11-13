@@ -5,8 +5,8 @@
 <h1 align="center">hermit.my</h1>
 
 <p align="center">
-  The public web surface for <b>Hermit</b>, private AI that runs entirely on your iPhone.<br>
-  <a href="https://hermit.my">hermit.my</a> · <a href="https://x.com/hermitai_">@hermitai_</a>
+  The website for <b>Hermit</b>, a local AI that manages your onchain assets, on iPhone and Mac.<br>
+  <a href="https://hermit.my">hermit.my</a> · <a href="https://hermit.my/dmg">Download for Mac</a> · <a href="https://docs.hermit.my">Docs</a> · <a href="https://x.com/hermitai_">@hermitai_</a>
 </p>
 
 <p align="center">
@@ -20,13 +20,28 @@
 
 ---
 
-Hermit pulls a quantised open-weight model onto the phone once, then generates every answer on the device. There is
-no inference server behind it, so it keeps working in flight mode. This repository is the site that tells that story
-and takes beta sign-ups.
+Hermit is a wallet for iPhone and Mac with an AI assistant that runs on the device. It pulls our own open-weight model,
+Hermit 1.3, onto your device once, then answers there, so it keeps working in flight mode. You ask in plain words to
+swap, bridge, trade, stake or pay; it prepares the move, and nothing is signed until you approve. This repository is
+the site that tells that story and hands out the app.
 
 It is deliberately built without a framework or a bundler. Every interaction, from the refracting glass to the
 animated product stage, is written by hand against the platform, so the page ships exactly the bytes it needs and
 nothing it does not.
+
+## What the site shows
+
+| Page | What's on it |
+| --- | --- |
+| [hermit.my](https://hermit.my) | The story, the live product stage, and what runs on NEAR, each with a **Powered by NEAR** tag: swaps through NEAR Intents, Private Cloud on NEAR AI Cloud, a NEAR account with staking, the **Black box** ([`hermit-blackbox.near`](https://nearblocks.io/address/hermit-blackbox.near)), **AI insurance** ([`hermit-insurance.near`](https://nearblocks.io/address/hermit-insurance.near)) and **Budgets** ([`hermit-guard.near`](https://nearblocks.io/address/hermit-guard.near)). Downloads are open during the hackathon. |
+| [hermit.my/dmg](https://hermit.my/dmg) | The notarized Mac app, with what's new in each build. |
+| [hermit.my/gallery](https://hermit.my/gallery) | Screens and the architecture diagrams, Black Box and AI insurance included, with full-size downloads. |
+| [hermit.my/terms](https://hermit.my/terms), [/privacy](https://hermit.my/privacy) | Terms and the privacy policy, in plain words. |
+| [hermit.my/support](https://hermit.my/support) | Help and contact. |
+
+The app itself lives in [hermit-app](https://github.com/Hermit-Ai-Labs/hermit-app), the docs at
+[docs.hermit.my](https://docs.hermit.my), and how we train the model in
+[hermit-training](https://github.com/Hermit-Ai-Labs/hermit-training). This repository holds the home page's source.
 
 ## Engineering highlights
 
